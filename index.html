@@ -5,54 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <nav id="navbar">
+            <div class="container">
+                <h1 id="logo">Your Name</h1>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
     <main>
-        <section id="about">
-            <h1>Your Name</h1>
-            <p>Brief introduction about yourself and your skills.</p>
+        <section id="about" class="bg-light">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I'm a passionate software developer with expertise in web technologies and a keen interest in creating intuitive, user-friendly applications.</p>
+                <div class="skills">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                </div>
+            </div>
         </section>
 
         <section id="projects">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>Advanced Weather Dashboard</h3>
-                <p>Description of the project.</p>
-                <a href="weather-dashboard/index.html" class="run-project">Run Project</a>
-                <a href="#" class="github-link">View on GitHub</a>
-            </div>
-            <div class="project">
-                <h3>Interactive Physics Simulation</h3>
-                <p>Description of the project.</p>
-                <a href="physics-simulation/index.html" class="run-project">Run Project</a>
-                <a href="#" class="github-link">View on GitHub</a>
-            </div>
-            <div class="project">
-                <h3>Natural Language Processing Demo</h3>
-                <p>Description of the project.</p>
-                <a href="nlp-demo/index.html" class="run-project">Run Project</a>
-                <a href="#" class="github-link">View on GitHub</a>
+            <div class="container">
+                <h2>Projects</h2>
+                <!-- Project content will be added here later -->
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Your contact information or a contact form.</p>
+        <section id="contact" class="bg-light">
+            <div class="container">
+                <h2>Contact</h2>
+                <p>Get in touch with me at: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
