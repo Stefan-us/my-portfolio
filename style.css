@@ -2,6 +2,7 @@
     --bg-color: #152238;
     --text-color: #ffffff;
     --accent-color: #4169E1;
+    --highlight-color: #00BFFF;
 }
 
 body {
@@ -11,126 +12,148 @@ body {
     background-color: var(--bg-color);
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 header {
     position: fixed;
     width: 100%;
-    top: 0;
+    top: 20px;
     z-index: 1000;
-    padding: 20px 40px;
 }
 
 nav ul {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
 nav ul li {
-    margin-left: 30px;
+    margin: 0 20px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: var(--text-color);
     font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--highlight-color);
 }
 
 main {
-    padding-top: 80px;
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
 }
 
 .page {
-    min-height: 100vh;
+    height: 100vh;
+    scroll-snap-align: start;
     display: flex;
     align-items: center;
-    padding: 0 40px;
+    justify-content: center;
 }
 
 .content {
     max-width: 1200px;
-    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-h1 {
-    font-size: 3.5em;
+.intro {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.about {
+    flex: 1;
+}
+
+h1, h2 {
+    font-size: 3em;
     margin-bottom: 20px;
 }
 
-h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+.highlight {
+    color: var(--highlight-color);
 }
 
 .tagline {
     font-size: 1.5em;
     margin-bottom: 30px;
-    color: var(--accent-color);
-}
-
-.about {
-    margin-top: 40px;
-    max-width: 600px;
 }
 
 .project-grid {
     display: flex;
-    gap: 30px;
     overflow-x: auto;
-    padding-bottom: 20px;
+    padding: 20px 0;
+    scroll-snap-type: x mandatory;
 }
 
 .project-item {
     flex: 0 0 auto;
+    width: 200px;
+    margin-right: 20px;
     text-align: center;
+    scroll-snap-align: start;
+    text-decoration: none;
     color: var(--text-color);
-    width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
 }
 
 .project-item i {
     color: var(--accent-color);
-    font-size: 3em;
     margin-bottom: 10px;
-}
-
-.project-item p {
-    font-size: 1em;
 }
 
 form {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
 }
 
 input, textarea {
     margin-bottom: 15px;
-    padding: 12px;
+    padding: 10px;
     background-color: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 5px;
     color: var(--text-color);
-    font-size: 1em;
 }
 
 button {
     background-color: var(--accent-color);
     color: var(--text-color);
     border: none;
-    padding: 12px 24px;
+    padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 1em;
-    font-weight: bold;
-    align-self: flex-start;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--highlight-color);
 }
 
 @media (max-width: 768px) {
-    .page {
-        padding: 0 20px;
+    .content {
+        flex-direction: column;
+    }
+
+    .intro, .about {
+        padding-right: 0;
+        text-align: center;
     }
 }
