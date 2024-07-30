@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stefan Cretu - Creative Developer</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </head>
 <body>
     <nav id="navbar">
@@ -19,33 +20,45 @@
     </nav>
 
     <main>
-        <section id="home" class="active">
+        <section id="home">
             <div class="content">
-                <h1>Stefan Cretu</h1>
-                <p>A passionate developer crafting digital experiences</p>
-                <a href="#projects" class="cta-button">Explore My Work</a>
+                <div class="left-content">
+                    <h1>An experimental developer with a strong interest within visual identity, print and digital design.</h1>
+                </div>
+                <div class="right-content">
+                    <p>I'm Stefan Cretu, a passionate developer crafting digital experiences. My work spans various disciplines, combining innovative approaches with user-centric design principles.</p>
+                </div>
             </div>
         </section>
 
         <section id="about">
             <div class="content">
                 <h2>About Me</h2>
-                <p>An experimental developer with a strong interest in visual identity, print and digital design.</p>
+                <p>As a creative problem-solver, I bring a unique perspective to every project. My background in both development and design allows me to create cohesive, functional, and visually appealing digital solutions.</p>
             </div>
         </section>
 
         <section id="projects">
             <div class="content">
                 <h2>My Projects</h2>
-                <div class="project-grid">
-                    <div class="project-card">
+                <div id="project-carousel">
+                    <div class="project-file">
+                        <div class="file-icon">
+                            <span class="year">2024</span>
+                        </div>
                         <h3>Weather Dashboard</h3>
-                        <p>2024</p>
                     </div>
-                    <div class="project-card">
+                    <div class="project-file">
+                        <div class="file-icon">
+                            <span class="year">2023</span>
+                        </div>
                         <h3>E-commerce Platform</h3>
-                        <p>2023</p>
                     </div>
+                    <!-- Add more project files as needed -->
+                </div>
+                <div class="carousel-controls">
+                    <button id="prev-project">&lt;</button>
+                    <button id="next-project">&gt;</button>
                 </div>
             </div>
         </section>
