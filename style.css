@@ -1,151 +1,97 @@
-:root {
-    --main-color: #000080; /* Navy */
-    --secondary-color: #ffffff; /* White */
-    --accent-color: #4169E1; /* Royal Blue for accents */
-}
-
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: var(--secondary-color);
-    background-color: var(--main-color);
+    color: #333;
+    background-color: #f0f4f8;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
 }
 
 header {
-    padding: 20px 50px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 nav ul {
     display: flex;
     justify-content: flex-end;
     list-style-type: none;
-    padding: 0;
+    padding: 20px;
+    margin: 0;
 }
 
 nav ul li {
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: var(--secondary-color);
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: var(--accent-color);
+    color: #333;
 }
 
 main {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 80px auto 0;
     padding: 20px;
 }
 
-.hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.hero-content {
-    flex: 2;
-    padding-right: 50px;
-}
-
-.about-column {
-    flex: 1;
-}
-
 h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-}
-
-.tagline {
-    font-size: 1.5rem;
-    color: var(--accent-color);
+    font-size: 2.5em;
+    margin-bottom: 10px;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2em;
+    margin-top: 40px;
+}
+
+.tagline {
+    color: #0066cc;
+    font-size: 1.2em;
     margin-bottom: 30px;
 }
 
-.project-carousel {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+.project-list {
+    list-style-type: none;
+    padding: 0;
 }
 
-.project-file {
-    flex: 0 0 auto;
-    width: 300px;
-    margin-right: 20px;
-    text-align: center;
-    scroll-snap-align: start;
+.project-list li {
+    margin-bottom: 10px;
 }
 
-.project-file i {
-    color: var(--secondary-color);
-}
-
-.carousel-nav {
-    display: flex;
-    justify-content: center;
+.project-nav {
     margin-top: 20px;
 }
 
-.carousel-nav button {
-    background-color: var(--accent-color);
-    color: var(--secondary-color);
-    border: none;
-    padding: 10px 20px;
-    margin: 0 10px;
+button {
+    background-color: #f0f4f8;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-right: 10px;
     cursor: pointer;
 }
 
-#contact form {
+form {
     display: flex;
     flex-direction: column;
-    max-width: 500px;
-    margin: 0 auto;
 }
 
-#contact form input,
-#contact form textarea {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--secondary-color);
+input, textarea {
+    margin-bottom: 10px;
+    padding: 5px;
 }
 
-#contact form button {
-    background-color: var(--accent-color);
-    color: var(--secondary-color);
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .hero {
+@media (max-width: 600px) {
+    nav ul {
         flex-direction: column;
+        align-items: flex-end;
     }
 
-    .hero-content, .about-column {
-        padding-right: 0;
-        text-align: center;
-    }
-
-    h1 {
-        font-size: 3rem;
+    nav ul li {
+        margin-top: 10px;
     }
 }

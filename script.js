@@ -1,23 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const carousel = document.querySelector('.project-carousel');
-    const prevButton = document.querySelector('.carousel-nav .prev');
-    const nextButton = document.querySelector('.carousel-nav .next');
+    const projectList = document.querySelector('.project-list');
+    const prevButton = document.querySelector('.project-nav .prev');
+    const nextButton = document.querySelector('.project-nav .next');
+    
+    let currentProject = 0;
+    const projects = projectList.children;
+
+    function showProject(index) {
+        for (let i = 0; i < projects.length; i++) {
+            projects[i].style.display = i === index ? 'block' : 'none';
+        }
+    }
 
     prevButton.addEventListener('click', () => {
-        carousel.scrollBy({ left: -300, behavior: 'smooth' });
+        currentProject = (currentProject - 1 + projects.length) % projects.length;
+        showProject(currentProject);
     });
 
     nextButton.addEventListener('click', () => {
-        carousel.scrollBy({ left: 300, behavior: 'smooth' });
+        currentProject = (currentProject + 1) % projects.length;
+        showProject(currentProject);
     });
 
-    // Smooth scrolling for navigation
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+    showProject(currentProject);
 });
