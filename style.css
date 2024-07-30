@@ -1,22 +1,22 @@
 :root {
-    --bg-color: #f0f4f8;
-    --text-color: #333;
-    --accent-color: #0066cc;
-    --highlight-color: #ff6600;
+    --main-color: #000080; /* Navy */
+    --secondary-color: #ffffff; /* White */
+    --accent-color: #4169E1; /* Royal Blue for accents */
+    --text-color: var(--secondary-color);
 }
 
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--bg-color);
+    background-color: var(--main-color);
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: var(--main-color);
+    border-bottom: 1px solid var(--secondary-color);
     position: fixed;
     width: 100%;
     top: 0;
@@ -36,7 +36,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--secondary-color);
     font-weight: bold;
     transition: color 0.3s ease;
 }
@@ -59,6 +59,7 @@ main {
 h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
+    color: var(--secondary-color);
 }
 
 .tagline {
@@ -69,6 +70,7 @@ h1 {
 h2 {
     font-size: 2.5rem;
     margin-bottom: 30px;
+    color: var(--secondary-color);
 }
 
 .project-grid {
@@ -78,11 +80,15 @@ h2 {
 }
 
 .project-card {
-    background-color: white;
+    background-color: var(--secondary-color);
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(255,255,255,0.1);
     transition: transform 0.3s ease;
+}
+
+.project-card h3, .project-card p {
+    color: var(--main-color);
 }
 
 .project-card:hover {
@@ -92,8 +98,9 @@ h2 {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: var(--text-color);
-    color: white;
+    background-color: var(--main-color);
+    border-top: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 @media (max-width: 768px) {
