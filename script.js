@@ -1,59 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Skill animations
-    const skills = document.querySelectorAll('.skill');
-    skills.forEach(skill => {
-        skill.addEventListener('mouseover', () => {
-            const animation = skill.dataset.skill.toLowerCase();
-            switch(animation) {
-                case 'html':
-                    skill.style.transform = 'rotate(360deg)';
-                    break;
-                case 'css':
-                    skill.style.transform = 'translateY(-10px)';
-                    break;
-                case 'javascript':
-                    skill.style.transform = 'scale(1.1)';
-                    break;
-                case 'react':
-                    skill.style.transform = 'rotate(180deg)';
-                    break;
-                case 'node.js':
-                    skill.style.transform = 'skew(10deg)';
-                    break;
-            }
-        });
-        skill.addEventListener('mouseout', () => {
-            skill.style.transform = 'none';
-        });
-    });
-
-    // Project carousel
-    const carousel = document.getElementById('project-carousel');
-    const projects = carousel.querySelectorAll('.project-file');
+    const projectCarousel = document.getElementById('project-carousel');
+    const projects = projectCarousel.querySelectorAll('.project-file');
+    const prevButton = document.getElementById('prev-project');
+    const nextButton = document.getElementById('next-project');
     let currentIndex = 0;
 
     function updateCarousel() {
         projects.forEach((project, index) => {
-            const offset = (index - currentIndex + projects.length) % projects.length;
-            const zIndex = projects.length - Math.abs(offset);
-            const opacity = 1 - (Math.abs(offset) / projects.length);
-            const scale = 1 - (Math.abs(offset) * 0.1);
-
-            project.style.transform = `translateX(${offset * 120}%) scale(${scale})`;
-            project.style.zIndex = zIndex;
-            project.style.opacity = opacity;
+            if (index === currentIndex) {
+                project.style.transform = 'scale(1.1)';
+                project.style.opacity = '1';
+            } else {
+                project.style.transform = 'scale(0.9)';
+                project.style.opacity = '0.7';
+            }
         });
     }
 
-    document.getElementById('next-project').addEventListener('click', () => {
+    function showNextProject() {
         currentIndex = (currentIndex + 1) % projects.length;
         updateCarousel();
-    });
+    }
 
-    document.getElementById('prev-project').addEventListener('click', () => {
+    function showPrevProject() {
         currentIndex = (currentIndex - 1 + projects.length) % projects.length;
         updateCarousel();
-    });
+    }
+
+    nextButton.addEventListener('click', showNextProject);
+    prevButton.addEventListener('click', showPrevProject);
 
     // Initialize carousel
     updateCarousel();
@@ -66,13 +41,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 behavior: 'smooth'
             });
         });
-    });
-
-    // Form submission (you'll need to implement the backend for this)
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        // Implement form submission logic here
-        console.log('Form submitted');
     });
 });
