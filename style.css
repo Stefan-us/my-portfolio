@@ -2,7 +2,6 @@
     --bg-color: #152238;
     --text-color: #ffffff;
     --accent-color: #4169E1;
-    --highlight-color: #00BFFF;
 }
 
 body {
@@ -12,7 +11,6 @@ body {
     background-color: var(--bg-color);
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
 }
 
 header {
@@ -21,7 +19,6 @@ header {
     top: 0;
     z-index: 1000;
     padding: 20px 40px;
-    background-color: rgba(21, 34, 56, 0.8);
 }
 
 nav ul {
@@ -40,11 +37,6 @@ nav ul li a {
     text-decoration: none;
     color: var(--text-color);
     font-size: 1.1em;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: var(--highlight-color);
 }
 
 main {
@@ -55,8 +47,7 @@ main {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
+    padding: 0 40px;
 }
 
 .content {
@@ -82,35 +73,31 @@ h2 {
 
 .about {
     margin-top: 40px;
+    max-width: 600px;
 }
 
 .project-grid {
     display: flex;
-    flex-wrap: wrap;
     gap: 30px;
-    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 20px;
 }
 
 .project-item {
-    flex: 0 0 calc(25% - 30px);
+    flex: 0 0 auto;
     text-align: center;
-    text-decoration: none;
     color: var(--text-color);
-    transition: transform 0.3s ease;
-}
-
-.project-item:hover {
-    transform: translateY(-5px);
+    width: 150px;
 }
 
 .project-item i {
     color: var(--accent-color);
-    font-size: 4em;
+    font-size: 3em;
     margin-bottom: 10px;
 }
 
 .project-item p {
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 form {
@@ -137,19 +124,13 @@ button {
     padding: 12px 24px;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
     font-size: 1em;
     font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-button:hover {
-    background-color: var(--highlight-color);
+    align-self: flex-start;
 }
 
 @media (max-width: 768px) {
-    .project-item {
-        flex: 0 0 calc(50% - 30px);
+    .page {
+        padding: 0 20px;
     }
 }
