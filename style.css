@@ -1,17 +1,17 @@
 :root {
-    --primary-color: #3498db; /* Light blue */
-    --secondary-color: #2c3e50; /* Dark blue */
-    --accent-color: #e74c3c; /* Red for CTA */
+    --primary-color: #000;
+    --background-color: #fff;
     --text-color: #333;
-    --bg-color: #ecf0f1; /* Light gray background */
+    --accent-color: #3498db;
 }
 
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
     color: var(--text-color);
+    overflow-x: hidden;
 }
 
 .container {
@@ -20,163 +20,113 @@ body, html {
     padding: 0 20px;
 }
 
-/* Header and Navigation */
 #navbar {
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
-    width: 100%;
     top: 0;
+    width: 100%;
+    background-color: var(--background-color);
     z-index: 1000;
-}
-
-#navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-}
-
-#logo {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    margin: 0;
 }
 
 #navbar ul {
     display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    justify-content: flex-end;
+    list-style-type: none;
+    padding: 20px 0;
 }
 
-#navbar ul li {
-    margin-left: 2rem;
+#navbar li {
+    margin-left: 30px;
 }
 
-#navbar ul li a {
-    color: var(--secondary-color);
+#navbar a {
     text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
     transition: color 0.3s ease;
 }
 
-#navbar ul li a:hover {
-    color: var(--primary-color);
+#navbar a:hover {
+    color: var(--accent-color);
 }
 
-/* Home section */
-#home {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
+main {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+section:not(.active) {
+    transform: translateX(100%);
+}
+
+.content {
     text-align: center;
-    padding-top: 80px; /* Account for fixed navbar */
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
 }
 
 .cta-button {
     display: inline-block;
+    padding: 12px 24px;
     background-color: var(--accent-color);
-    color: white;
-    padding: 0.75rem 1.5rem;
+    color: var(--background-color);
     text-decoration: none;
+    font-weight: bold;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    margin-top: 2rem;
 }
 
 .cta-button:hover {
-    background-color: #c0392b;
+    background-color: #2980b9;
 }
 
-/* Project section */
-#project-carousel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 2rem;
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-.project-file {
-    width: 200px;
-    text-align: center;
-    transition: transform 0.3s ease;
+.project-card {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
 }
 
-.project-file:hover {
-    transform: translateY(-10px);
+.project-card h3 {
+    margin-top: 0;
 }
 
-.file-icon {
-    width: 150px;
-    height: 120px;
-    background-color: var(--primary-color);
-    border-radius: 10px 10px 0 0;
-    position: relative;
-    margin: 0 auto;
-}
-
-.file-icon::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-top: 20px solid var(--bg-color);
-    border-left: 20px solid transparent;
-}
-
-.year {
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 0.8rem;
-}
-
-.project-file h3 {
-    margin-top: 0.5rem;
-    font-size: 1rem;
-    color: var(--secondary-color);
-}
-
-.carousel-controls {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.carousel-controls button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.carousel-controls button:hover {
-    background-color: var(--secondary-color);
-}
-
-/* Responsive design */
 @media (max-width: 768px) {
-    #navbar .container {
-        flex-direction: column;
+    h1 {
+        font-size: 3rem;
     }
 
-    #navbar ul {
-        margin-top: 1rem;
-    }
-
-    #navbar ul li {
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-
-    #project-carousel {
-        flex-direction: column;
+    h2 {
+        font-size: 2.5rem;
     }
 }

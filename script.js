@@ -1,45 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const projectCarousel = document.getElementById('project-carousel');
-    const projects = projectCarousel.querySelectorAll('.project-file');
-    const prevButton = document.getElementById('prev-project');
-    const nextButton = document.getElementById('next-project');
-    let currentIndex = 0;
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('#navbar a');
 
-    function updateCarousel() {
-        projects.forEach((project, index) => {
-            if (index === currentIndex) {
-                project.style.transform = 'scale(1.1)';
-                project.style.opacity = '1';
+    function setActiveSection(sectionId) {
+        sections.forEach(section => {
+            if (section.id === sectionId) {
+                section.classList.add('active');
             } else {
-                project.style.transform = 'scale(0.9)';
-                project.style.opacity = '0.7';
+                section.classList.remove('active');
             }
         });
     }
 
-    function showNextProject() {
-        currentIndex = (currentIndex + 1) % projects.length;
-        updateCarousel();
-    }
-
-    function showPrevProject() {
-        currentIndex = (currentIndex - 1 + projects.length) % projects.length;
-        updateCarousel();
-    }
-
-    nextButton.addEventListener('click', showNextProject);
-    prevButton.addEventListener('click', showPrevProject);
-
-    // Initialize carousel
-    updateCarousel();
-
-    // Smooth scrolling for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const targetId = link.getAttribute('href').slice(1);
+            setActiveSection(targetId);
         });
+    });
+
+    // Handle scroll-based navigation
+    let isScrolling = false;
+    let startY;
+
+    document.addEventListener('wheel', (e) => {
+        if (!isScrolling) {
+            startY = e.pageY;
+            isScrolling = true;
+
+            setTimeout(() => {
+                const direction = e.pageY > startY ? 1 : -1;
+                const activeSection = document.querySelector('section.active');
+                let nextSection;
+
+                if (direction === 1) {
+                    nextSection = activeSection.nextElementSibling;
+                } else {
+                    nextSection = activeSection.previousElementSibling;
+                }
+
+                if (nextSection && nextSection.tagName === 'SECTION') {
+                    setActiveSection(nextSection.id);
+                }
+
+                isScrolling = false;
+            }, 50);
+        }
     });
 });
