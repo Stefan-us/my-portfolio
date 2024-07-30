@@ -1,26 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const projectList = document.querySelector('.project-list');
-    const prevButton = document.querySelector('.project-nav .prev');
-    const nextButton = document.querySelector('.project-nav .next');
-    
-    let currentProject = 0;
-    const projects = projectList.children;
-
-    function showProject(index) {
-        for (let i = 0; i < projects.length; i++) {
-            projects[i].style.display = i === index ? 'block' : 'none';
-        }
-    }
-
-    prevButton.addEventListener('click', () => {
-        currentProject = (currentProject - 1 + projects.length) % projects.length;
-        showProject(currentProject);
+    // Smooth scrolling for navigation
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     });
 
-    nextButton.addEventListener('click', () => {
-        currentProject = (currentProject + 1) % projects.length;
-        showProject(currentProject);
+    // Project swiping
+    const projectGrid = document.querySelector('.project-grid');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    projectGrid.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - projectGrid.offsetLeft;
+        scrollLeft = projectGrid.scrollLeft;
     });
 
-    showProject(currentProject);
+    projectGrid.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    projectGrid.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    projectGrid.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - projectGrid.offsetLeft;
+        const walk = (x - startX) * 2;
+        projectGrid.scrollLeft = scrollLeft - walk;
+    });
 });

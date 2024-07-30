@@ -1,25 +1,32 @@
+:root {
+    --bg-color: #0d1342;
+    --text-color: #ffffff;
+    --accent-color: #4169E1;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f0f4f8;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 header {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
     top: 0;
+    z-index: 1000;
+    padding: 20px;
 }
 
 nav ul {
     display: flex;
     justify-content: flex-end;
     list-style-type: none;
-    padding: 20px;
+    padding: 0;
     margin: 0;
 }
 
@@ -29,17 +36,30 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-color);
 }
 
 main {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+}
+
+.page {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
     max-width: 800px;
-    margin: 80px auto 0;
     padding: 20px;
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     margin-bottom: 10px;
 }
 
@@ -49,30 +69,28 @@ h2 {
 }
 
 .tagline {
-    color: #0066cc;
+    color: var(--accent-color);
     font-size: 1.2em;
     margin-bottom: 30px;
 }
 
-.project-list {
-    list-style-type: none;
-    padding: 0;
+.project-grid {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 0;
+    scroll-snap-type: x mandatory;
 }
 
-.project-list li {
-    margin-bottom: 10px;
+.project-item {
+    flex: 0 0 auto;
+    width: 200px;
+    margin-right: 20px;
+    text-align: center;
+    scroll-snap-align: start;
 }
 
-.project-nav {
-    margin-top: 20px;
-}
-
-button {
-    background-color: #f0f4f8;
-    border: 1px solid #ccc;
-    padding: 5px 10px;
-    margin-right: 10px;
-    cursor: pointer;
+.project-item i {
+    color: var(--accent-color);
 }
 
 form {
@@ -82,7 +100,18 @@ form {
 
 input, textarea {
     margin-bottom: 10px;
-    padding: 5px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text-color);
+}
+
+button {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
 }
 
 @media (max-width: 600px) {
