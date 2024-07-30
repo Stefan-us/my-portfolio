@@ -3,35 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Stefan Cretu - Creative Developer</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </head>
 <body>
-    <header id="navbar">
-        <div class="container">
-            <h1 id="logo">Your Name</h1>
-            <nav>
+    <header>
+        <nav id="navbar">
+            <div class="container">
+                <h1 id="logo">Stefan Cretu</h1>
                 <ul>
+                    <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
+                    <li class="dropdown">
+                        <a href="#projects">Projects <i class="fas fa-caret-down"></i></a>
+                        <ul class="dropdown-content">
+                            <li><a href="#weather-dashboard">Weather Dashboard</a></li>
+                            <li><a href="#project2">Project 2</a></li>
+                            <li><a href="#project3">Project 3</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
 
     <main>
-        <section id="about" class="section bg-light">
+        <section id="home" class="hero">
+            <div class="container">
+                <h2>Welcome to My Creative World</h2>
+                <p>I'm Stefan Cretu, a passionate developer crafting digital experiences.</p>
+                <a href="#projects" class="cta-button">Explore My Work</a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
             <div class="container">
                 <h2>About Me</h2>
-                <p>I'm a passionate software developer with expertise in web technologies and a keen interest in creating intuitive, user-friendly applications.</p>
-                <div class="skills">
-                    <span class="skill-tag">HTML</span>
-                    <span class="skill-tag">CSS</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Node.js</span>
+                <p>I'm a creative problem-solver with a keen eye for design and a passion for coding. My journey in tech is driven by curiosity and a desire to build intuitive, user-friendly applications.</p>
+                <div id="skills-container">
+                    <h3>My Skills</h3>
+                    <div class="skill-box" data-skill="HTML">HTML</div>
+                    <div class="skill-box" data-skill="CSS">CSS</div>
+                    <div class="skill-box" data-skill="JavaScript">JavaScript</div>
+                    <div class="skill-box" data-skill="React">React</div>
+                    <div class="skill-box" data-skill="Node.js">Node.js</div>
                 </div>
             </div>
         </section>
@@ -40,10 +57,10 @@
             <div class="container">
                 <h2>Projects</h2>
                 <div class="project-grid">
-                    <div class="project-card">
-                        <img src="weather-dashboard-preview.jpg" alt="Weather Dashboard Preview">
+                    <div class="project-card" id="weather-dashboard">
+                        <div class="project-image" style="background-image: url('weather-dashboard-preview.jpg')"></div>
                         <h3>Advanced Weather Dashboard</h3>
-                        <p>A responsive weather application providing real-time forecasts.</p>
+                        <p>A responsive weather application providing real-time forecasts with interactive maps.</p>
                         <div class="project-links">
                             <a href="weather-dashboard/index.html" class="btn">View Project</a>
                             <a href="#" class="btn">GitHub</a>
@@ -54,10 +71,11 @@
             </div>
         </section>
 
-        <section id="contact" class="section bg-light">
+        <section id="contact" class="section">
             <div class="container">
-                <h2>Contact</h2>
-                <p>Get in touch with me at: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <h2>Get In Touch</h2>
+                <p>I'm always open to new opportunities and collaborations.</p>
+                <a href="mailto:stefancretu24@yahoo.co.uk" class="email-link">stefancretu24@yahoo.co.uk</a>
                 <div class="social-links">
                     <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
@@ -69,7 +87,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Your Name. All rights reserved.</p>
+            <p>&copy; 2024 Stefan Cretu. All rights reserved.</p>
         </div>
     </footer>
 
