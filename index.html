@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name - Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav id="navbar">
+    <header id="navbar">
         <div class="container">
             <h1 id="logo">Your Name</h1>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <main>
         <section id="about" class="section bg-light">
@@ -36,7 +39,18 @@
         <section id="projects" class="section">
             <div class="container">
                 <h2>Projects</h2>
-                <!-- Add your projects here -->
+                <div class="project-grid">
+                    <div class="project-card">
+                        <img src="weather-dashboard-preview.jpg" alt="Weather Dashboard Preview">
+                        <h3>Advanced Weather Dashboard</h3>
+                        <p>A responsive weather application providing real-time forecasts.</p>
+                        <div class="project-links">
+                            <a href="weather-dashboard/index.html" class="btn">View Project</a>
+                            <a href="#" class="btn">GitHub</a>
+                        </div>
+                    </div>
+                    <!-- Add more project cards here -->
+                </div>
             </div>
         </section>
 
@@ -45,9 +59,9 @@
                 <h2>Contact</h2>
                 <p>Get in touch with me at: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
                 <div class="social-links">
-                    <a href="#" class="social-icon"><!-- Add icon here --></a>
-                    <a href="#" class="social-icon"><!-- Add icon here --></a>
-                    <a href="#" class="social-icon"><!-- Add icon here --></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </section>
