@@ -1,53 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize skills
-    const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'];
-    const skillsContainer = document.getElementById('skills-container');
+    // Skill animations
+    const skills = document.querySelectorAll('.skill');
     skills.forEach(skill => {
-        const skillBox = document.createElement('div');
-        skillBox.className = 'skill-box';
-        skillBox.textContent = skill;
-        skillsContainer.appendChild(skillBox);
+        skill.addEventListener('mouseover', () => {
+            const animation = skill.dataset.skill.toLowerCase();
+            switch(animation) {
+                case 'html':
+                    skill.style.transform = 'rotate(360deg)';
+                    break;
+                case 'css':
+                    skill.style.transform = 'translateY(-10px)';
+                    break;
+                case 'javascript':
+                    skill.style.transform = 'scale(1.1)';
+                    break;
+                case 'react':
+                    skill.style.transform = 'rotate(180deg)';
+                    break;
+                case 'node.js':
+                    skill.style.transform = 'skew(10deg)';
+                    break;
+            }
+        });
+        skill.addEventListener('mouseout', () => {
+            skill.style.transform = 'none';
+        });
     });
 
-    // Initialize project carousel
-    const projects = [
-        { name: 'Weather Dashboard', year: 2024 },
-        { name: 'E-commerce Platform', year: 2023 },
-        { name: 'Social Media App', year: 2022 },
-        // Add more projects here
-    ];
-
+    // Project carousel
     const carousel = document.getElementById('project-carousel');
-    const totalProjects = projects.length;
-    const radius = 300; // Adjust based on your preference
-    let angle = 0;
+    const projects = carousel.querySelectorAll('.project-file');
+    let currentIndex = 0;
 
-    projects.forEach((project, index) => {
-        const folder = document.createElement('div');
-        folder.className = 'project-folder';
-        folder.textContent = `${project.name} (${project.year})`;
-        folder.style.transform = `translateZ(-${radius}px) rotateY(${(index * 360) / totalProjects}deg) translateZ(${radius}px)`;
-        carousel.appendChild(folder);
+    function updateCarousel() {
+        projects.forEach((project, index) => {
+            const offset = (index - currentIndex + projects.length) % projects.length;
+            const zIndex = projects.length - Math.abs(offset);
+            const opacity = 1 - (Math.abs(offset) / projects.length);
+            const scale = 1 - (Math.abs(offset) * 0.1);
 
-        folder.addEventListener('click', () => openProject(project));
-    });
-
-    function rotateCarousel(direction) {
-        angle += direction * (360 / totalProjects);
-        carousel.style.transform = `translateZ(-${radius}px) rotateY(${angle}deg)`;
+            project.style.transform = `translateX(${offset * 120}%) scale(${scale})`;
+            project.style.zIndex = zIndex;
+            project.style.opacity = opacity;
+        });
     }
 
-    // Add navigation controls
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') rotateCarousel(1);
-        if (e.key === 'ArrowRight') rotateCarousel(-1);
+    document.getElementById('next-project').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % projects.length;
+        updateCarousel();
     });
 
-    function openProject(project) {
-        // Implement project opening logic here
-        console.log(`Opening project: ${project.name}`);
-        // You can create a modal or navigate to a new page here
-    }
+    document.getElementById('prev-project').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+        updateCarousel();
+    });
+
+    // Initialize carousel
+    updateCarousel();
 
     // Smooth scrolling for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -59,25 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form submission
+    // Form submission (you'll need to implement the backend for this)
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         // Implement form submission logic here
         console.log('Form submitted');
-    });
-
-    // Animate on scroll
-    window.addEventListener('scroll', () => {
-        const sections = document.querySelectorAll('.fullscreen-section');
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const sectionBottom = section.getBoundingClientRect().bottom;
-            if (sectionTop < window.innerHeight && sectionBottom > 0) {
-                section.classList.add('in-view');
-            } else {
-                section.classList.remove('in-view');
-            }
-        });
     });
 });

@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefan Cretu - Creative Developer Portfolio</title>
+    <title>Stefan Cretu - Creative Developer</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </head>
 <body>
-    <nav id="main-nav">
-        <div class="nav-content">
-            <span id="logo">Stefan Cretu</span>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav id="navbar">
+            <div class="container">
+                <h1 id="logo">Stefan Cretu</h1>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <main>
         <section id="home" class="fullscreen-section">
-            <h1>Hello, I'm Stefan Cretu</h1>
+            <h2>Hello, I'm Stefan Cretu</h2>
             <p>A passionate developer crafting digital experiences</p>
             <a href="#projects" class="cta-button">Explore My Work</a>
         </section>
@@ -32,13 +33,29 @@
             <h2>About Me</h2>
             <p>I'm a creative problem-solver with a keen eye for design and a passion for coding. My journey in tech is driven by curiosity and a desire to build intuitive, user-friendly applications.</p>
             <div id="skills-container">
-                <!-- Skills will be dynamically added here -->
+                <div class="skill" data-skill="HTML">HTML</div>
+                <div class="skill" data-skill="CSS">CSS</div>
+                <div class="skill" data-skill="JavaScript">JavaScript</div>
+                <div class="skill" data-skill="React">React</div>
+                <div class="skill" data-skill="Node.js">Node.js</div>
             </div>
         </section>
 
         <section id="projects" class="fullscreen-section">
             <div id="project-carousel">
-                <!-- Project folders will be dynamically added here -->
+                <div class="project-file" data-year="2024">
+                    <div class="file-icon"></div>
+                    <h3>Weather Dashboard</h3>
+                </div>
+                <div class="project-file" data-year="2023">
+                    <div class="file-icon"></div>
+                    <h3>E-commerce Platform</h3>
+                </div>
+                <!-- Add more project files as needed -->
+            </div>
+            <div class="carousel-controls">
+                <button id="prev-project">&lt;</button>
+                <button id="next-project">&gt;</button>
             </div>
         </section>
 
@@ -54,9 +71,6 @@
     </main>
 
     <footer>
-        <div class="social-links">
-            <!-- Add your social media links here -->
-        </div>
         <p>&copy; 2024 Stefan Cretu. All rights reserved.</p>
     </footer>
 
