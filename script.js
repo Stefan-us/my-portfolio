@@ -1,5 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scrolling
+    // Initialize skills
+    const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'];
+    const skillsContainer = document.getElementById('skills-container');
+    skills.forEach(skill => {
+        const skillBox = document.createElement('div');
+        skillBox.className = 'skill-box';
+        skillBox.textContent = skill;
+        skillsContainer.appendChild(skillBox);
+    });
+
+    // Initialize project carousel
+    const projects = [
+        { name: 'Weather Dashboard', year: 2024 },
+        { name: 'E-commerce Platform', year: 2023 },
+        { name: 'Social Media App', year: 2022 },
+        // Add more projects here
+    ];
+
+    const carousel = document.getElementById('project-carousel');
+    const totalProjects = projects.length;
+    const radius = 300; // Adjust based on your preference
+    let angle = 0;
+
+    projects.forEach((project, index) => {
+        const folder = document.createElement('div');
+        folder.className = 'project-folder';
+        folder.textContent = `${project.name} (${project.year})`;
+        folder.style.transform = `translateZ(-${radius}px) rotateY(${(index * 360) / totalProjects}deg) translateZ(${radius}px)`;
+        carousel.appendChild(folder);
+
+        folder.addEventListener('click', () => openProject(project));
+    });
+
+    function rotateCarousel(direction) {
+        angle += direction * (360 / totalProjects);
+        carousel.style.transform = `translateZ(-${radius}px) rotateY(${angle}deg)`;
+    }
+
+    // Add navigation controls
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') rotateCarousel(1);
+        if (e.key === 'ArrowRight') rotateCarousel(-1);
+    });
+
+    function openProject(project) {
+        // Implement project opening logic here
+        console.log(`Opening project: ${project.name}`);
+        // You can create a modal or navigate to a new page here
+    }
+
+    // Smooth scrolling for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -9,52 +59,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
+    // Form submission
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Implement form submission logic here
+        console.log('Form submitted');
+    });
+
+    // Animate on scroll
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
-        } else {
-            navbar.style.background = 'transparent';
-            navbar.style.boxShadow = 'none';
-        }
-    });
-
-    // Skills animation
-    const skills = document.querySelectorAll('.skill-box');
-    skills.forEach(skill => {
-        skill.addEventListener('mouseover', () => {
-            skill.style.transform = 'scale(1.1) rotate(5deg)';
-        });
-        skill.addEventListener('mouseout', () => {
-            skill.style.transform = 'scale(1) rotate(0deg)';
+        const sections = document.querySelectorAll('.fullscreen-section');
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const sectionBottom = section.getBoundingClientRect().bottom;
+            if (sectionTop < window.innerHeight && sectionBottom > 0) {
+                section.classList.add('in-view');
+            } else {
+                section.classList.remove('in-view');
+            }
         });
     });
-
-    // Project card hover effect
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mouseover', () => {
-            card.style.transform = 'translateY(-10px)';
-            card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
-        });
-        card.addEventListener('mouseout', () => {
-            card.style.transform = 'translateY(0)';
-            card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-        });
-    });
-
-    // Typing effect for hero section
-    const heroText = "I'm Stefan Cretu, a passionate developer crafting digital experiences.";
-    const heroP = document.querySelector('.hero p');
-    let i = 0;
-    function typeWriter() {
-        if (i < heroText.length) {
-            heroP.innerHTML += heroText.charAt(i);
-            i++;
-            setTimeout(typeWriter, 50);
-        }
-    }
-    typeWriter();
 });
