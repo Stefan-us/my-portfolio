@@ -9,35 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Project carousel
-    const carousel = document.getElementById('project-carousel');
-    const projects = carousel.querySelectorAll('.project-file');
-    const prevButton = document.getElementById('prev-project');
-    const nextButton = document.getElementById('next-project');
-    let currentIndex = 0;
-
-    function updateCarousel() {
-        const offset = -currentIndex * 220; // 200px width + 20px gap
-        carousel.style.transform = `translateX(${offset}px)`;
-    }
-
-    prevButton.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateCarousel();
-        }
-    });
-
-    nextButton.addEventListener('click', () => {
-        if (currentIndex < projects.length - 1) {
-            currentIndex++;
-            updateCarousel();
-        }
-    });
-
     // Highlight active nav item on scroll
     const sections = document.querySelectorAll('section');
-    const navItems = document.querySelectorAll('#navbar a');
+    const navItems = document.querySelectorAll('nav ul li a');
 
     window.addEventListener('scroll', () => {
         let current = '';
