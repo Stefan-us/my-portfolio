@@ -18,20 +18,22 @@ body {
 header {
     position: fixed;
     width: 100%;
-    top: 20px;
+    top: 0;
     z-index: 1000;
+    padding: 20px 40px;
+    background-color: rgba(21, 34, 56, 0.8);
 }
 
 nav ul {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
 nav ul li {
-    margin: 0 20px;
+    margin-left: 30px;
 }
 
 nav ul li a {
@@ -46,63 +48,52 @@ nav ul li a:hover {
 }
 
 main {
-    height: 100vh;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
+    padding-top: 80px;
 }
 
 .page {
-    height: 100vh;
-    scroll-snap-align: start;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 40px 20px;
 }
 
 .content {
     max-width: 1200px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 100%;
 }
 
-.intro {
-    flex: 1;
-    padding-right: 40px;
-}
-
-.about {
-    flex: 1;
-}
-
-h1, h2 {
-    font-size: 3em;
+h1 {
+    font-size: 3.5em;
     margin-bottom: 20px;
 }
 
-.highlight {
-    color: var(--highlight-color);
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
 .tagline {
     font-size: 1.5em;
     margin-bottom: 30px;
+    color: var(--accent-color);
+}
+
+.about {
+    margin-top: 40px;
 }
 
 .project-grid {
     display: flex;
-    overflow-x: auto;
-    padding: 20px 0;
-    scroll-snap-type: x mandatory;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: flex-start;
 }
 
 .project-item {
-    flex: 0 0 auto;
-    width: 200px;
-    margin-right: 20px;
+    flex: 0 0 calc(25% - 30px);
     text-align: center;
-    scroll-snap-align: start;
     text-decoration: none;
     color: var(--text-color);
     transition: transform 0.3s ease;
@@ -114,33 +105,43 @@ h1, h2 {
 
 .project-item i {
     color: var(--accent-color);
+    font-size: 4em;
     margin-bottom: 10px;
+}
+
+.project-item p {
+    font-size: 1.1em;
 }
 
 form {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
 }
 
 input, textarea {
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 12px;
     background-color: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 5px;
     color: var(--text-color);
+    font-size: 1em;
 }
 
 button {
     background-color: var(--accent-color);
     color: var(--text-color);
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 button:hover {
@@ -148,12 +149,7 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-    .content {
-        flex-direction: column;
-    }
-
-    .intro, .about {
-        padding-right: 0;
-        text-align: center;
+    .project-item {
+        flex: 0 0 calc(50% - 30px);
     }
 }
