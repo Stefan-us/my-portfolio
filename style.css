@@ -26,11 +26,12 @@ header {
 
 nav ul {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center; /* Change from flex-end to center */
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
+
 
 nav ul li {
     margin-left: 30px;
