@@ -65,23 +65,30 @@ main {
 }
 
 h1 {
-    font-size: 3.5em;
-    margin-bottom: 20px;
-}
-
-h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
 }
 
-.tagline {
-    font-size: 1.5em;
-    margin-bottom: 30px;
-    color: var(--accent-color);
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 
-.about {
-    margin-top: 40px;
+.intro-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.intro-left, .intro-right {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+}
+
+.highlight {
+    color: var(--highlight-color);
 }
 
 .project-grid {
@@ -151,5 +158,13 @@ button:hover {
 @media (max-width: 768px) {
     .project-item {
         flex: 0 0 calc(50% - 30px);
+    }
+    
+    .intro-container {
+        flex-direction: column;
+    }
+    
+    .intro-left, .intro-right {
+        width: 100%;
     }
 }

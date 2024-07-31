@@ -1,72 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefan Cretu - Developer & Designer</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/8662a47064.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</div>
 
-    <main>
-        <section id="home" class="page">
-            <div class="content">
-                <h1>Hello, I'm Stefan Cretu.</h1>
-                <p class="tagline">An experimental developer with a strong interest in visual identity, print, and digital design.</p>
-                <div class="about">
+<main role="main">
+    <section id="home" class="section page">
+        <div class="content">
+            <div class="intro-container">
+                <div class="intro-left">
+                    <h1>Hello, I'm <span class="highlight">Stefan Cretu</span>. An experimental <span class="highlight">developer</span> with a strong interest in visual <span class="highlight">identity</span>, print, and digital design.</h1>
+                </div>
+                <div class="intro-right">
                     <h2>About Me</h2>
                     <p>I am Stefan, a creative problem-solver with a unique perspective on development and design, striving to create cohesive and visually appealing digital solutions.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="projects" class="page">
-            <div class="content">
-                <h2>Projects</h2>
-                <div class="project-grid">
-                    <a href="#" class="project-item">
-                        <i class="fas fa-folder fa-3x"></i>
-                        <p>Weather Dashboard</p>
-                    </a>
-                    <a href="#" class="project-item">
-                        <i class="fas fa-folder fa-3x"></i>
-                        <p>E-Commerce Platform</p>
-                    </a>
-                    <a href="#" class="project-item">
-                        <i class="fas fa-folder fa-3x"></i>
-                        <p>Portfolio Website</p>
-                    </a>
-                    <a href="#" class="project-item">
-                        <i class="fas fa-folder fa-3x"></i>
-                        <p>Social Media App</p>
-                    </a>
-                </div>
+    <section id="projects" class="section page">
+        <div class="content">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <a href="#" class="project-item">Weather Dashboard</a>
+                <a href="#" class="project-item">E-Commerce Platform</a>
+                <a href="#" class="project-item">Portfolio Website</a>
+                <a href="#" class="project-item">Social Media App</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="page">
-            <div class="content">
-                <h2>Contact Me</h2>
-                <form>
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <section id="contact" class="section page">
+        <div class="content">
+            <h2>Contact Me</h2>
+            <button>Send Message</button>
+        </div>
+    </section>
+</main>
