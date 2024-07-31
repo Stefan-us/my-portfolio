@@ -153,3 +153,23 @@ button:hover {
         flex: 0 0 calc(50% - 30px);
     }
 }
+
+/* Add this to the beginning of your existing CSS */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Add this to the end of your existing CSS */
+.section {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.section.fade-out {
+    opacity: 0;
+}
