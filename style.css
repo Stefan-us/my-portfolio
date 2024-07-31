@@ -12,7 +12,7 @@ body {
     background-color: var(--bg-color);
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 header {
@@ -47,12 +47,7 @@ nav ul li a:hover {
     color: var(--highlight-color);
 }
 
-main {
-    padding-top: 80px;
-}
-
-.page {
-    min-height: 100vh;
+.section {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,9 +98,13 @@ h2 {
     transform: translateY(-5px);
 }
 
-.project-item i {
-    color: var(--accent-color);
-    font-size: 4em;
+.project-icon {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-color: var(--accent-color);
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>') no-repeat center center;
+    mask-size: contain;
     margin-bottom: 10px;
 }
 
@@ -154,22 +153,13 @@ button:hover {
     }
 }
 
-/* Add this to the beginning of your existing CSS */
-html {
-    scroll-behavior: smooth;
+/* fullPage.js navigation styles */
+#fp-nav ul li a span, 
+.fp-slidesNav ul li a span {
+    background: var(--text-color);
 }
 
-body {
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-/* Add this to the end of your existing CSS */
-.section {
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.section.fade-out {
-    opacity: 0;
+#fp-nav ul li a.active span, 
+.fp-slidesNav ul li a.active span {
+    background: var(--accent-color);
 }

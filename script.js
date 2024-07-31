@@ -1,13 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scrolling for navigation
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            navigateToPage(this.getAttribute('href'));
-        });
+    new fullpage('#fullpage', {
+        //options here
+        autoScrolling: true,
+        scrollHorizontally: true,
+        navigation: true,
+        navigationPosition: 'right',
+        scrollingSpeed: 700,
+        fitToSection: true,
+        scrollOverflow: true,
+        touchSensitivity: 15,
+        normalScrollElementTouchThreshold: 5,
+        anchors: ['home', 'projects', 'contact'],
+        menu: 'header nav',
+        onLeave: (origin, destination, direction) => {
+            // Prevent scrolling up from the first section
+            if (origin.index === 0 && direction === 'up') {
+                return false;
+            }
+            // Prevent scrolling down from the last section
+            if (origin.index === 2 && direction === 'down') {
+                return false;
+            }
+        },
+        afterLoad: (origin, destination, direction) => {
+            // You can add any additional logic here after a section is loaded
+        }
     });
 
-    // Project swiping
+    // Project swiping (if needed)
     const projectGrid = document.querySelector('.project-grid');
     if (projectGrid) {
         let isDown = false;
@@ -36,44 +56,4 @@ document.addEventListener('DOMContentLoaded', () => {
             projectGrid.scrollLeft = scrollLeft - walk;
         });
     }
-
-    // Seamless page navigation
-    function navigateToPage(url) {
-        fetch(url)
-            .then(response => response.text())
-            .then(html => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const newContent = doc.querySelector('main').innerHTML;
-                document.querySelector('main').innerHTML = newContent;
-                history.pushState(null, '', url);
-                window.scrollTo(0, 0);
-            });
-    }
-
-    // Handle browser back/forward
-    window.addEventListener('popstate', () => {
-        navigateToPage(window.location.pathname);
-    });
-
-    // Infinite scroll effect
-    let lastScrollTop = 0;
-    let currentPageIndex = 0;
-    const pages = ['index.html', 'projects.html', 'contact.html'];
-
-    window.addEventListener('scroll', () => {
-        const st = window.pageYOffset || document.documentElement.scrollTop;
-        if (st > lastScrollTop) {
-            // Scrolling down
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
-                currentPageIndex = (currentPageIndex + 1) % pages.length;
-                navigateToPage(pages[currentPageIndex]);
-            }
-        } else if (st === 0) {
-            // Scrolling up to the top
-            currentPageIndex = (currentPageIndex - 1 + pages.length) % pages.length;
-            navigateToPage(pages[currentPageIndex]);
-        }
-        lastScrollTop = st <= 0 ? 0 : st;
-    }, false);
 });
