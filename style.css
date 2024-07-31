@@ -1,8 +1,8 @@
 :root {
-    --bg-color: #152238;
-    --text-color: #ffffff;
+    --bg-color: #ffffff;
+    --text-color: #000000;
     --accent-color: #4169E1;
-    --highlight-color: #00BFFF;
+    --highlight-color: #4169E1;
 }
 
 body {
@@ -20,20 +20,20 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    padding: 20px 40px;
-    background-color: rgba(21, 34, 56, 0.8);
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 nav ul {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     list-style-type: none;
-    padding: 0;
+    padding: 20px 0;
     margin: 0;
 }
 
 nav ul li {
-    margin-left: 30px;
+    margin: 0 20px;
 }
 
 nav ul li a {
@@ -44,7 +44,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: var(--highlight-color);
+    color: var(--accent-color);
 }
 
 main {
@@ -55,29 +55,35 @@ main {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
+    padding: 0 40px;
+    position: relative;
 }
 
 .content {
     max-width: 1200px;
     width: 100%;
+    margin: 0 auto;
 }
 
 h1 {
-    font-size: 3.5em;
+    font-size: 2.5em;
+    line-height: 1.2;
     margin-bottom: 20px;
 }
 
 h2 {
-    font-size: 2.5em;
+    font-size: 2em;
     margin-bottom: 20px;
 }
 
 .tagline {
-    font-size: 1.5em;
-    margin-bottom: 30px;
-    color: var(--accent-color);
+    display: block;
+    font-size: 0.5em;
+    margin-top: 10px;
+}
+
+.highlight {
+    color: var(--highlight-color);
 }
 
 .about {
@@ -86,62 +92,57 @@ h2 {
 
 .project-grid {
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px 0;
 }
 
 .project-item {
-    flex: 0 0 calc(25% - 30px);
+    flex: 0 0 33.33%;
+    scroll-snap-align: start;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    text-decoration: none;
-    color: var(--text-color);
-    transition: transform 0.3s ease;
-}
-
-.project-item:hover {
-    transform: translateY(-5px);
 }
 
 .project-item i {
+    font-size: 5em;
     color: var(--accent-color);
-    font-size: 4em;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .project-item p {
-    font-size: 1.1em;
+    margin-top: 10px;
+    font-size: 1.2em;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    width: 100%;
     max-width: 500px;
+    margin: 0 auto;
 }
 
 input, textarea {
     margin-bottom: 15px;
-    padding: 12px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-radius: 5px;
-    color: var(--text-color);
-    font-size: 1em;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
 button {
+    padding: 10px 20px;
     background-color: var(--accent-color);
-    color: var(--text-color);
+    color: white;
     border: none;
-    padding: 12px 24px;
+    border-radius: 4px;
     cursor: pointer;
-    border-radius: 5px;
     transition: background-color 0.3s ease;
-    font-size: 1em;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 button:hover {
@@ -150,6 +151,6 @@ button:hover {
 
 @media (max-width: 768px) {
     .project-item {
-        flex: 0 0 calc(50% - 30px);
+        flex: 0 0 100%;
     }
 }
