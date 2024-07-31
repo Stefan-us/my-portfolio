@@ -9,25 +9,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Highlight active section in navigation
-    const sections = document.querySelectorAll('.section');
-    const navItems = document.querySelectorAll('nav a');
+    // Project swiping
+    const projectGrid = document.querySelector('.project-grid');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - sectionHeight / 3) {
-                current = section.getAttribute('id');
-            }
-        });
+    projectGrid.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - projectGrid.offsetLeft;
+        scrollLeft = projectGrid.scrollLeft;
+    });
 
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href').slice(1) === current) {
-                item.classList.add('active');
-            }
-        });
+    projectGrid.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    projectGrid.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    projectGrid.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - projectGrid.offsetLeft;
+        const walk = (x - startX) * 2;
+        projectGrid.scrollLeft = scrollLeft - walk;
     });
 });
