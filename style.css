@@ -55,9 +55,12 @@ nav ul li a:hover {
 }
 
 .content {
-    max-width: 900px; /* Reduced max-width for a more narrow layout */
+    max-width: 1200px;
     width: 100%;
     text-align: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 h1 {
@@ -70,26 +73,22 @@ h2 {
     margin-bottom: 20px;
 }
 
-.tagline {
-    font-size: 1.5em;
-    margin-bottom: 30px;
-}
-
 .highlight {
     color: var(--highlight-color);
 }
 
 .intro {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     gap: 40px;
-    text-align: center; /* Ensure text is centered */
+    margin-top: 50px; /* Moves the content down */
 }
 
 .left-part, .right-part {
-    width: 100%;
-    max-width: 600px; /* More narrow width */
+    width: 50%;
+    max-width: 600px;
 }
 
 .project-grid {
@@ -160,12 +159,14 @@ button:hover {
 
 @media (max-width: 768px) {
     .intro {
-        flex-direction: column; /* Stack the parts vertically on smaller screens */
+        flex-direction: column;
         text-align: center;
     }
 
     .left-part, .right-part {
         text-align: center;
+        width: 100%;
+        max-width: none;
     }
 
     .project-item {
