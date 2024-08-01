@@ -15,7 +15,6 @@ body {
     overflow: hidden;
 }
 
-/* Header and Navigation */
 header {
     position: fixed;
     width: 100%;
@@ -50,7 +49,6 @@ nav ul li a:hover {
     color: var(--highlight-color);
 }
 
-/* General Section Styling */
 .section {
     display: flex;
     align-items: center;
@@ -65,26 +63,21 @@ nav ul li a:hover {
     text-align: center;
 }
 
-/* Home Section */
-#home .content {
+.centered-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     height: 100%;
 }
 
-#home h1 {
-    font-size: 3.5em;
-    margin-bottom: 60px; /* Increased margin to move title down */
-}
-
-#home .intro {
+.intro {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 40px;
-    text-align: left;
 }
 
 .left-part, .right-part {
@@ -92,14 +85,18 @@ nav ul li a:hover {
     max-width: 500px;
 }
 
-.highlight {
-    color: var(--highlight-color);
+h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
 }
 
-/* Projects Section */
-#projects h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
+h5 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: var(--highlight-color);
 }
 
 .project-grid {
@@ -131,12 +128,6 @@ nav ul li a:hover {
 
 .project-item p {
     font-size: 1.1em;
-}
-
-/* Contact Section */
-#contact h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
 }
 
 form {
@@ -175,15 +166,8 @@ button:hover {
     background-color: var(--highlight-color);
 }
 
-/* Fullpage.js Navigation Styling */
-#fp-nav ul li a span, 
-.fp-slidesNav ul li a span {
-    background: white;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-    #home .intro {
+    .intro {
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -194,16 +178,11 @@ button:hover {
         max-width: none;
     }
 
-    .project-item {
-        flex: 0 0 calc(50% - 30px);
-    }
-
     h1 {
         font-size: 2.5em;
-        margin-bottom: 40px; /* Adjusted for smaller screens */
     }
 
-    h2 {
-        font-size: 2em;
+    h5 {
+        font-size: 1.2em;
     }
 }
