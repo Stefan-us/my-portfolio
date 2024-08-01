@@ -66,25 +66,34 @@ nav ul li a:hover {
 }
 
 /* Home Section */
-#home .intro {
+#home .content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    justify-content: center;
+    height: 100%;
 }
 
 #home h1 {
     font-size: 3.5em;
-    margin-bottom: 20px;
+    margin-bottom: 60px; /* Increased margin to move title down */
+}
+
+#home .intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    text-align: left;
+}
+
+.left-part, .right-part {
+    flex: 1;
+    max-width: 500px;
 }
 
 .highlight {
     color: var(--highlight-color);
-}
-
-.left-part, .right-part {
-    width: 100%;
-    max-width: 600px;
 }
 
 /* Projects Section */
@@ -176,6 +185,8 @@ button:hover {
 @media (max-width: 768px) {
     #home .intro {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
     .left-part, .right-part {
@@ -189,6 +200,7 @@ button:hover {
 
     h1 {
         font-size: 2.5em;
+        margin-bottom: 40px; /* Adjusted for smaller screens */
     }
 
     h2 {
