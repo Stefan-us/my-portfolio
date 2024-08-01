@@ -6,7 +6,12 @@ new fullpage('#fullpage', {
     autoScrolling: true,
     fitToSection: true,
     scrollBar: false,
-    afterLoad: function(origin, destination, direction){
+    css3: true,
+    easingcss3: 'ease-out',
+    afterLoad: function(origin, destination, direction) {
         console.log("Section loaded: " + destination.anchor);
+    },
+    onLeave: function(origin, destination, direction) {
+        console.log("Leaving section: " + origin.index);
     }
 });
