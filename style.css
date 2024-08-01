@@ -72,24 +72,37 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 #home h1 {
     font-size: 3.5em;
-    margin-bottom: 60px; /* Increased margin to move title down */
+    margin-bottom: 60px;
+    text-align: center;
+    width: 100%;
 }
 
 #home .intro {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     gap: 40px;
-    text-align: left;
+    width: 100%;
 }
 
 .left-part, .right-part {
     flex: 1;
     max-width: 500px;
+}
+
+.left-part {
+    text-align: right;
+}
+
+.right-part {
+    text-align: left;
 }
 
 .highlight {
@@ -186,10 +199,10 @@ button:hover {
     #home .intro {
         flex-direction: column;
         align-items: center;
-        text-align: center;
     }
 
     .left-part, .right-part {
+        text-align: center;
         width: 100%;
         max-width: none;
     }
