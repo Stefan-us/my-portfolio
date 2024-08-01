@@ -23,8 +23,6 @@ header {
     z-index: 1000;
     padding: 20px 0;
     background-color: rgba(21, 34, 56, 0.8);
-    display: flex;
-    justify-content: center;
 }
 
 nav ul {
@@ -75,34 +73,34 @@ nav ul li a:hover {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-#home h1 {
-    font-size: 3.5em;
-    margin-bottom: 60px;
-    text-align: center;
-    width: 100%;
+    padding: 0 20px;
 }
 
 #home .intro {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
+    width: 100%;
+    max-width: 800px;
+}
+
+#home h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
     width: 100%;
 }
 
+#home h5 {
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 0;
+}
+
 .left-part, .right-part {
-    flex: 1;
-    max-width: 500px;
-}
-
-.left-part {
-    text-align: right;
-}
-
-.right-part {
-    text-align: left;
+    width: 100%;
+    text-align: center;
 }
 
 .highlight {
@@ -196,24 +194,16 @@ button:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    #home .intro {
-        flex-direction: column;
-        align-items: center;
+    #home h1 {
+        font-size: 2em;
     }
 
-    .left-part, .right-part {
-        text-align: center;
-        width: 100%;
-        max-width: none;
+    #home h5 {
+        font-size: 1em;
     }
 
     .project-item {
         flex: 0 0 calc(50% - 30px);
-    }
-
-    h1 {
-        font-size: 2.5em;
-        margin-bottom: 40px; /* Adjusted for smaller screens */
     }
 
     h2 {
