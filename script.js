@@ -11,5 +11,7 @@ new fullpage('#fullpage', {
     },
     onLeave: function(origin, destination, direction) {
         console.log("Leaving section: " + origin.index);
-    }
+    },
+    scrollingSpeed: 700, // Adjust this value to change the scrolling speed
+    easing: 'easeInOutCubic' // This provides a smooth easing effect
 });
