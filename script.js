@@ -6,8 +6,6 @@ new fullpage('#fullpage', {
     autoScrolling: true,
     fitToSection: true,
     scrollBar: false,
-    css3: true,
-    easingcss3: 'ease-out',
     afterLoad: function(origin, destination, direction) {
         console.log("Section loaded: " + destination.anchor);
     },
