@@ -3,72 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefan Cretu - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Stefan Cretu - Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" data-target="home">Home</a></li>
+                <li><a href="#" data-target="projects">Projects</a></li>
+                <li><a href="#" data-target="contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <div id="fullpage">
-        <div class="section" data-anchor="home">
-            <div class="content">
-                <h1>Hello, I'm Stefan Cretu.</h1>
-                <p class="tagline">An experimental developer with a strong interest in visual identity, print, and digital design.</p>
-                <div class="about">
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <h1>Hello, I'm <span class="highlight">Stefan Cretu</span>. An experimental <span class="highlight">developer</span> with a strong interest in visual <span class="highlight">identity</span>, print, and digital design.</h1>
+                </div>
+                <div class="hero-right">
                     <h2>About Me</h2>
                     <p>I am Stefan, a creative problem-solver with a unique perspective on development and design, striving to create cohesive and visually appealing digital solutions.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="section" data-anchor="projects">
-            <div class="content">
-                <h2>Projects</h2>
-                <div class="project-grid">
-                    <a href="#" class="project-item">
-                        <div class="project-icon"></div>
-                        <p>Weather Dashboard</p>
-                    </a>
-                    <a href="#" class="project-item">
-                        <div class="project-icon"></div>
-                        <p>E-Commerce Platform</p>
-                    </a>
-                    <a href="#" class="project-item">
-                        <div class="project-icon"></div>
-                        <p>Portfolio Website</p>
-                    </a>
-                    <a href="#" class="project-item">
-                        <div class="project-icon"></div>
-                        <p>Social Media App</p>
-                    </a>
+        <section id="projects" class="hidden">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Weather Dashboard</h3>
+                    <p>A dynamic weather application providing real-time forecasts.</p>
+                </div>
+                <div class="project-card">
+                    <h3>E-Commerce Platform</h3>
+                    <p>A full-stack online shopping solution with secure payment integration.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Portfolio Website</h3>
+                    <p>A responsive showcase of my work and skills in web development.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Social Media App</h3>
+                    <p>A modern social networking platform with real-time messaging.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="section" data-anchor="contact">
-            <div class="content">
-                <h2>Contact Me</h2>
-                <form>
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </div>
+        <section id="contact" class="hidden">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/scrolloverflow.min.js"></script>
+    <footer>
+        <p>&copy; 2024 Stefan Cretu. All rights reserved.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
