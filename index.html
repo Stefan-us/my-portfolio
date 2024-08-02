@@ -1,25 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefan Cretu - Portfolio</title>
+    <title>Stefan Cretu - Developer & Designer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <div id="fullpage">
-        <div class="section" data-anchor="home">
+        <div class="section" id="home">
             <div class="content">
                 <div class="intro centered-content">
                     <div class="left-part">
@@ -56,15 +48,10 @@
             </div>
         </div>
 
-        <div class="section" data-anchor="contact">
+        <div class="section" id="contact">
             <div class="content">
                 <h2>Contact Me</h2>
-                <form>
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
+                <button>Send Message</button>
             </div>
         </div>
     </div>
@@ -72,7 +59,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/scrolloverflow.min.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
-
