@@ -283,6 +283,11 @@ button:hover {
         padding: 0 20px;
     }
 
+    input, textarea {
+        width: 100%; /* Ensure inputs and textarea fit within the form */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
+    }
+
     #color-toggle {
         top: 10px;
         right: 10px;
