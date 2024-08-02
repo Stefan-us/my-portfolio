@@ -19,11 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Create Lucide icons
-    lucide.createIcons();
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+        lucide.createIcons();
+    } else {
+        console.error('Lucide library not loaded properly');
+    }
 });
 
 window.addEventListener('hashchange', function() {
     console.log('Hash changed:', window.location.hash);
 });
-</document_content>
-</document>
