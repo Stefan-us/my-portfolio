@@ -1,10 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Lucide icons
-    if (typeof lucide !== 'undefined' && lucide.createIcons) {
-        lucide.createIcons();
-    } else {
-        console.error('Lucide library not loaded properly');
-    }
+    lucide.createIcons();
 
     // Initialize FullPage.js
     new fullpage('#fullpage', {
