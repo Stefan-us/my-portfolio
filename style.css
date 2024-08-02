@@ -4,6 +4,7 @@
     --accent-color: #4169E1;
     --highlight-color: #00BFFF;
     --light-soft-blue: #add8e6; /* New color for light mode button */
+    --neutral-color: #B0B0B0; /* New neutral color for the icon */
 }
 
 :root.light-mode {
@@ -12,6 +13,7 @@
     --accent-color: #5A7B9C;
     --highlight-color: #3A5E7C;
     --light-soft-blue: #add8e6; /* New color for light mode button */
+    --neutral-color: #B0B0B0; /* New neutral color for the icon */
 }
 
 body {
@@ -81,6 +83,11 @@ nav ul li a:hover {
 
 #color-toggle:hover {
     background-color: var(--highlight-color);
+}
+
+/* Updated icon color for light mode */
+.light-mode #color-toggle {
+    background-color: var(--neutral-color);
 }
 
 /* General Section Styling */
