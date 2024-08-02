@@ -22,3 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('hashchange', function() {
     console.log('Hash changed:', window.location.hash);
 });
+
+// Initialize Lucide icons
+lucide.createIcons();
