@@ -1,10 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Lucide icons
-    lucide.createIcons();
-
-    // Initialize FullPage.js
     new fullpage('#fullpage', {
-        licenseKey: 'gplv3-license',
+        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE', // Replace with your actual key if you have a premium license
         anchors: ['home', 'projects', 'contact'],
         navigation: true,
         navigationPosition: 'right',
@@ -21,8 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollingSpeed: 700,
         easing: 'easeInOutCubic'
     });
+
+    // Create Lucide icons
+    lucide.createIcons();
 });
 
 window.addEventListener('hashchange', function() {
     console.log('Hash changed:', window.location.hash);
 });
+</document_content>
+</document>
