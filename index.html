@@ -7,9 +7,21 @@
     <title>Stefan Cretu - Developer & Designer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div id="fullpage">
         <div class="section" id="home">
             <div class="content">
@@ -24,24 +36,32 @@
             </div>
         </div>
 
-        <div class="section" data-anchor="projects">
+        <div class="section" id="projects">
             <div class="content">
                 <h2>Projects</h2>
                 <div class="project-grid">
                     <a href="#" class="project-item">
-                        <div class="project-icon"></div>
+                        <div class="project-icon">
+                            <i data-lucide="cloud-sun"></i>
+                        </div>
                         <p>Weather Dashboard</p>
                     </a>
                     <a href="#" class="project-item">
-                        <div class="project-icon"></div>
+                        <div class="project-icon">
+                            <i data-lucide="shopping-cart"></i>
+                        </div>
                         <p>E-Commerce Platform</p>
                     </a>
                     <a href="#" class="project-item">
-                        <div class="project-icon"></div>
+                        <div class="project-icon">
+                            <i data-lucide="layout"></i>
+                        </div>
                         <p>Portfolio Website</p>
                     </a>
                     <a href="#" class="project-item">
-                        <div class="project-icon"></div>
+                        <div class="project-icon">
+                            <i data-lucide="users"></i>
+                        </div>
                         <p>Social Media App</p>
                     </a>
                 </div>
@@ -51,13 +71,16 @@
         <div class="section" id="contact">
             <div class="content">
                 <h2>Contact Me</h2>
-                <button>Send Message</button>
+                <form>
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
             </div>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/scrolloverflow.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
