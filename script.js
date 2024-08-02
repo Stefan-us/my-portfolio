@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     new fullpage('#fullpage', {
+        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE', // Replace with your actual key if you have a premium license
         anchors: ['home', 'projects', 'contact'],
         navigation: true,
         navigationPosition: 'right',
@@ -16,12 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollingSpeed: 700,
         easing: 'easeInOutCubic'
     });
+
+    // Create Lucide icons
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+        lucide.createIcons();
+    } else {
+        console.error('Lucide library not loaded properly');
+    }
 });
 
 window.addEventListener('hashchange', function() {
     console.log('Hash changed:', window.location.hash);
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    lucide.createIcons();
 });
