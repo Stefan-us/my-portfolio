@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     new fullpage('#fullpage', {
-        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE', // Replace with your actual key if you have a premium license
         anchors: ['home', 'projects', 'contact'],
         navigation: true,
         navigationPosition: 'right',
