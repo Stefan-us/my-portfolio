@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("Leaving section:", origin.anchor, "Going to:", destination.anchor, "Direction:", direction);
         },
         scrollingSpeed: 700,
-        easing: 'easeInOutCubic'
+        easing: 'easeInOutCubic',
+        sectionsSelector: '.section'  // Add this line to ensure sections are correctly identified
     });
 
     // Create Lucide icons
@@ -24,6 +25,18 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('Lucide library not loaded properly');
     }
+
+    // Color scheme toggle functionality
+    const colorToggle = document.createElement('button');
+    colorToggle.id = 'color-toggle';
+    colorToggle.textContent = 'Toggle Light Mode';
+    document.body.appendChild(colorToggle);
+
+    colorToggle.addEventListener('click', function() {
+        document.documentElement.classList.toggle('light-mode');
+        this.textContent = document.documentElement.classList.contains('light-mode') ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+        fullpage_api.reBuild();  // Rebuild FullPage.js after changing color scheme
+    });
 });
 
 window.addEventListener('hashchange', function() {
