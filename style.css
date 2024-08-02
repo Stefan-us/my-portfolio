@@ -4,6 +4,7 @@
     --accent-color: #4169E1;
     --highlight-color: #00BFFF;
     --button-color: #5A7B9C;
+    --button-light-color: #AEDFF7; /* New variable for light mode button */
 }
 
 :root.light-mode {
@@ -11,7 +12,7 @@
     --text-color: #333333;
     --accent-color: #5A7B9C;
     --highlight-color: #3A5E7C;
-    --button-color: #8DABC1;
+    --button-color: var(--button-light-color); /* Use the new variable */
 }
 
 body {
@@ -25,7 +26,6 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header and Navigation */
 header {
     position: fixed;
     width: 100%;
@@ -63,7 +63,6 @@ nav ul li a:hover {
     color: var(--highlight-color);
 }
 
-/* Color Toggle Button */
 #color-toggle {
     position: fixed;
     top: 20px;
@@ -83,7 +82,6 @@ nav ul li a:hover {
     background-color: var(--highlight-color);
 }
 
-/* General Section Styling */
 .section {
     display: flex;
     align-items: center;
@@ -103,9 +101,9 @@ nav ul li a:hover {
     justify-content: center;
 }
 
-/* Home Section */
 #home .content {
     height: 100%;
+    padding-top: 80px; /* Added padding to prevent overlap in dark mode */
 }
 
 #home .intro {
@@ -139,7 +137,6 @@ nav ul li a:hover {
     color: var(--highlight-color);
 }
 
-/* Projects Section */
 #projects h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
@@ -183,7 +180,6 @@ nav ul li a:hover {
     font-size: 1.1em;
 }
 
-/* Contact Section */
 #contact h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
@@ -195,6 +191,7 @@ form {
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
+    padding: 0 20px; /* Adjusted padding for mobile view */
 }
 
 input, textarea {
@@ -225,22 +222,18 @@ button:hover {
     background-color: var(--highlight-color);
 }
 
-/* Fullpage.js Navigation Styling */
 #fp-nav ul li a span, 
 .fp-slidesNav ul li a span {
     background: white;
 }
 
-/* FullPage.js specific styles */
 .fp-tableCell {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
-    /* Header adjustments */
     header {
         padding: 10px 0;
     }
@@ -258,9 +251,8 @@ button:hover {
         font-size: 0.9em;
     }
 
-    /* Home section adjustments */
     #home .content {
-        padding-top: 80px; /* Increased padding to prevent overlap */
+        padding-top: 80px;
     }
 
     #home h1 {
@@ -272,7 +264,6 @@ button:hover {
         font-size: 0.9em;
     }
 
-    /* Projects section adjustments */
     .project-item {
         flex: 0 0 calc(50% - 15px);
     }
@@ -282,7 +273,6 @@ button:hover {
         margin-bottom: 30px;
     }
 
-    /* Contact section adjustments */
     #contact h2 {
         font-size: 1.8em;
         margin-bottom: 30px;
@@ -293,7 +283,6 @@ button:hover {
         padding: 0 20px;
     }
 
-    /* Color toggle button adjustment */
     #color-toggle {
         top: 10px;
         right: 10px;
@@ -301,24 +290,19 @@ button:hover {
         font-size: 0.8em;
     }
 
-    /* General section adjustments */
     .section {
-        padding: 80px 15px; /* Increased top padding */
+        padding: 80px 15px;
     }
 
     .content {
         padding: 0;
     }
 
-    /* FullPage.js navigation adjustment */
     #fp-nav {
-        display: none; /* Hide navigation dots on mobile */
+        display: none;
     }
-}
 
-/* Dark mode specific adjustments */
-@media (max-width: 768px) {
     :root:not(.light-mode) header {
-        background-color: rgba(21, 34, 56, 0.95); /* Increased opacity for better contrast */
+        background-color: rgba(21, 34, 56, 0.95);
     }
 }
