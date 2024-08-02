@@ -5,6 +5,13 @@
     --highlight-color: #00BFFF;
 }
 
+:root.light-mode {
+    --bg-color: #F5F1E3;
+    --text-color: #333333;
+    --accent-color: #5A7B9C;
+    --highlight-color: #3A5E7C;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -13,6 +20,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Header and Navigation */
@@ -23,6 +31,11 @@ header {
     z-index: 1000;
     padding: 20px 0;
     background-color: rgba(21, 34, 56, 0.8);
+    transition: background-color 0.3s ease;
+}
+
+.light-mode header {
+    background-color: rgba(245, 241, 227, 0.8);
 }
 
 nav ul {
@@ -48,6 +61,25 @@ nav ul li a:hover {
     color: var(--highlight-color);
 }
 
+/* Color Toggle Button */
+#color-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+#color-toggle:hover {
+    background-color: var(--highlight-color);
+}
 /* General Section Styling */
 .section {
     display: flex;

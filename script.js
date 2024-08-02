@@ -24,6 +24,17 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('Lucide library not loaded properly');
     }
+
+    // Color scheme toggle functionality
+    const colorToggle = document.createElement('button');
+    colorToggle.id = 'color-toggle';
+    colorToggle.textContent = 'Toggle Light Mode';
+    document.body.appendChild(colorToggle);
+
+    colorToggle.addEventListener('click', function() {
+        document.documentElement.classList.toggle('light-mode');
+        this.textContent = document.documentElement.classList.contains('light-mode') ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+    });
 });
 
 window.addEventListener('hashchange', function() {
