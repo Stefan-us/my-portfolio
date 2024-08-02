@@ -137,12 +137,14 @@ nav ul li a:hover {
     align-items: center;
 }
 
-.project-item p {
-    font-size: 1.1em;
+.project-icon svg {
+    width: 40px;
+    height: 40px;
+    color: var(--accent-color);
 }
 
-.project-icon svg {
-    color: #4169E1; /* This is your accent color */
+.project-item p {
+    font-size: 1.1em;
 }
 
 /* Contact Section */
