@@ -3,8 +3,6 @@
     --text-color: #ffffff;
     --accent-color: #4169E1;
     --highlight-color: #00BFFF;
-    --button-color: #5A7B9C;
-    --button-light-color: #AEDFF7; /* New variable for light mode button */
 }
 
 :root.light-mode {
@@ -12,7 +10,6 @@
     --text-color: #333333;
     --accent-color: #5A7B9C;
     --highlight-color: #3A5E7C;
-    --button-color: var(--button-light-color); /* Use the new variable */
 }
 
 body {
@@ -26,6 +23,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Header and Navigation */
 header {
     position: fixed;
     width: 100%;
@@ -63,6 +61,7 @@ nav ul li a:hover {
     color: var(--highlight-color);
 }
 
+/* Color Toggle Button */
 #color-toggle {
     position: fixed;
     top: 20px;
@@ -81,14 +80,13 @@ nav ul li a:hover {
 #color-toggle:hover {
     background-color: var(--highlight-color);
 }
-
+/* General Section Styling */
 .section {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    padding: 60px 20px;
-    box-sizing: border-box;
+    height: 100vh;
+    padding: 0 20px;
 }
 
 .content {
@@ -101,9 +99,9 @@ nav ul li a:hover {
     justify-content: center;
 }
 
+/* Home Section */
 #home .content {
     height: 100%;
-    padding-top: 80px; /* Added padding to prevent overlap in dark mode */
 }
 
 #home .intro {
@@ -137,6 +135,7 @@ nav ul li a:hover {
     color: var(--highlight-color);
 }
 
+/* Projects Section */
 #projects h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
@@ -180,6 +179,7 @@ nav ul li a:hover {
     font-size: 1.1em;
 }
 
+/* Contact Section */
 #contact h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
@@ -191,7 +191,6 @@ form {
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
-    padding: 0 20px; /* Adjusted padding for mobile view */
 }
 
 input, textarea {
@@ -202,12 +201,10 @@ input, textarea {
     border-radius: 5px;
     color: var(--text-color);
     font-size: 1em;
-    width: 100%; /* Ensure inputs and textarea fit within the form */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
 button {
-    background-color: var(--button-color);
+    background-color: var(--accent-color);
     color: var(--text-color);
     border: none;
     padding: 12px 24px;
@@ -224,92 +221,34 @@ button:hover {
     background-color: var(--highlight-color);
 }
 
+/* Fullpage.js Navigation Styling */
 #fp-nav ul li a span, 
 .fp-slidesNav ul li a span {
     background: white;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    #home h1 {
+        font-size: 2em;
+    }
+
+    #home h5 {
+        font-size: 1em;
+    }
+
+    .project-item {
+        flex: 0 0 calc(50% - 30px);
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+}
+
+/* FullPage.js specific styles */
 .fp-tableCell {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-@media (max-width: 768px) {
-    header {
-        padding: 10px 0;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav ul li {
-        margin: 5px 10px;
-    }
-
-    nav ul li a {
-        font-size: 0.9em;
-    }
-
-    #home .content {
-        padding-top: 80px;
-    }
-
-    #home h1 {
-        font-size: 1.8em;
-        margin-bottom: 20px;
-    }
-
-    #home h5 {
-        font-size: 0.9em;
-    }
-
-    .project-item {
-        flex: 0 0 calc(50% - 15px);
-    }
-
-    #projects h2 {
-        font-size: 1.8em;
-        margin-bottom: 30px;
-    }
-
-    #contact h2 {
-        font-size: 1.8em;
-        margin-bottom: 30px;
-    }
-
-    form {
-        max-width: 100%;
-        padding: 0 20px;
-    }
-
-    input, textarea {
-        width: 100%; /* Ensure inputs and textarea fit within the form */
-        box-sizing: border-box; /* Include padding and border in element's total width and height */
-    }
-
-    #color-toggle {
-        top: 10px;
-        right: 10px;
-        padding: 8px 12px;
-        font-size: 0.8em;
-    }
-
-    .section {
-        padding: 80px 15px;
-    }
-
-    .content {
-        padding: 0;
-    }
-
-    #fp-nav {
-        display: none;
-    }
-
-    :root:not(.light-mode) header {
-        background-color: rgba(21, 34, 56, 0.95);
-    }
 }
