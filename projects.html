@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefan Cretu - Projects</title>
+    <title>Projects - Stefan Cretu</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <header>
@@ -17,32 +18,42 @@
         </nav>
     </header>
 
-    <main>
-        <div id="projects" class="section page">
+    <main role="main">
+        <section id="projects" class="section page">
             <div class="content">
                 <h2>Projects</h2>
                 <div class="project-grid">
-                    <a href="#" class="project-item">
-                        <i class="project-icon"></i>
+                    <div class="project-item">
+                        <div class="project-icon">
+                            <i data-lucide="file" width="60" height="60"></i>
+                        </div>
                         <p>Weather Dashboard</p>
-                    </a>
-                    <a href="#" class="project-item">
-                        <i class="project-icon"></i>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-icon">
+                            <i data-lucide="file" width="60" height="60"></i>
+                        </div>
                         <p>E-Commerce Platform</p>
-                    </a>
-                    <a href="#" class="project-item">
-                        <i class="project-icon"></i>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-icon">
+                            <i data-lucide="file" width="60" height="60"></i>
+                        </div>
                         <p>Portfolio Website</p>
-                    </a>
-                    <a href="#" class="project-item">
-                        <i class="project-icon"></i>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-icon">
+                            <i data-lucide="file" width="60" height="60"></i>
+                        </div>
                         <p>Social Media App</p>
-                    </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
