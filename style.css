@@ -5,6 +5,8 @@
     --highlight-color: #00BFFF;
     --button-color: #4169E1;
     --icon-color: #4169E1;
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --input-border: rgba(255, 255, 255, 0.3);
 }
 
 :root.light-mode {
@@ -14,6 +16,8 @@
     --highlight-color: #3A5E7C;
     --button-color: #5A7B9C;
     --icon-color: #5A7B9C;
+    --input-bg: rgba(0, 0, 0, 0.05);
+    --input-border: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -189,11 +193,16 @@ form {
 input, textarea {
     margin-bottom: 15px;
     padding: 12px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--text-color);
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
     border-radius: 5px;
     color: var(--text-color);
     font-size: 1em;
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
 }
 
 button {
@@ -216,6 +225,22 @@ button:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    header {
+        padding: 10px 0;
+    }
+
+    nav ul {
+        justify-content: space-around;
+    }
+
+    nav ul li {
+        margin: 0 5px;
+    }
+
+    nav ul li a {
+        font-size: 0.9em;
+    }
+
     #home h1 {
         font-size: 2em;
     }
@@ -235,6 +260,12 @@ button:hover {
     form {
         padding: 0 20px;
     }
+
+    #color-toggle {
+        top: 10px;
+        right: 10px;
+        font-size: 1.2em;
+    }
 }
 
 @media (max-width: 480px) {
@@ -242,12 +273,7 @@ button:hover {
         flex: 0 0 100%;
     }
 
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 10px 0;
+    nav ul li a {
+        font-size: 0.8em;
     }
 }
