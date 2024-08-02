@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Debugging
 window.addEventListener('hashchange', function() {
     console.log('Hash changed:', window.location.hash);
 });
 
-// Initialize Lucide icons
-lucide.createIcons();
+document.addEventListener('DOMContentLoaded', function() {
+    lucide.createIcons();
+});
