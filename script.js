@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     new fullpage('#fullpage', {
-        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE', // Replace with your actual key if you have a premium license
+        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
         anchors: ['home', 'projects', 'contact'],
         navigation: true,
         navigationPosition: 'right',
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         scrollingSpeed: 700,
         easing: 'easeInOutCubic',
-        sectionsSelector: '.section'  // Add this line to ensure sections are correctly identified
+        sectionsSelector: '.section'
     });
 
     // Create Lucide icons
@@ -29,13 +29,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Color scheme toggle functionality
     const colorToggle = document.createElement('button');
     colorToggle.id = 'color-toggle';
-    colorToggle.textContent = 'Toggle Light Mode';
+    colorToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Assuming you're using Font Awesome
     document.body.appendChild(colorToggle);
 
     colorToggle.addEventListener('click', function() {
         document.documentElement.classList.toggle('light-mode');
-        this.textContent = document.documentElement.classList.contains('light-mode') ? 'Toggle Dark Mode' : 'Toggle Light Mode';
-        fullpage_api.reBuild();  // Rebuild FullPage.js after changing color scheme
+        this.innerHTML = document.documentElement.classList.contains('light-mode') 
+            ? '<i class="fas fa-sun"></i>' 
+            : '<i class="fas fa-moon"></i>';
+        fullpage_api.reBuild();
     });
 });
 

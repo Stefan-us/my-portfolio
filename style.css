@@ -3,6 +3,8 @@
     --text-color: #ffffff;
     --accent-color: #4169E1;
     --highlight-color: #00BFFF;
+    --button-color: #4169E1;
+    --icon-color: #4169E1;
 }
 
 :root.light-mode {
@@ -10,6 +12,8 @@
     --text-color: #333333;
     --accent-color: #5A7B9C;
     --highlight-color: #3A5E7C;
+    --button-color: #5A7B9C;
+    --icon-color: #5A7B9C;
 }
 
 body {
@@ -19,7 +23,7 @@ body {
     background-color: var(--bg-color);
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -67,68 +71,54 @@ nav ul li a:hover {
     top: 20px;
     right: 20px;
     z-index: 1001;
-    background-color: var(--accent-color);
+    background-color: transparent;
     color: var(--text-color);
     border: none;
-    padding: 10px 15px;
+    padding: 10px;
     cursor: pointer;
-    border-radius: 5px;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
 }
 
 #color-toggle:hover {
-    background-color: var(--highlight-color);
+    color: var(--highlight-color);
 }
+
 /* General Section Styling */
 .section {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    padding: 0 20px;
+    min-height: 100vh;
+    padding: 60px 20px;
 }
 
 .content {
     max-width: 1200px;
     width: 100%;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 /* Home Section */
-#home .content {
-    height: 100%;
-}
-
 #home .intro {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
     max-width: 800px;
+    margin: 0 auto;
 }
 
 #home h1 {
     font-size: 2.5em;
     margin-bottom: 30px;
-    text-align: center;
-    width: 100%;
+    color: var(--text-color);
 }
 
 #home h5 {
     font-size: 1.2em;
-    text-align: center;
-    margin-top: 0;
-}
-
-.left-part, .right-part {
-    width: 100%;
-    text-align: center;
+    color: var(--text-color);
+    opacity: 0.8;
 }
 
 .highlight {
@@ -139,6 +129,7 @@ nav ul li a:hover {
 #projects h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
+    color: var(--text-color);
 }
 
 .project-grid {
@@ -163,7 +154,7 @@ nav ul li a:hover {
 .project-icon {
     width: 60px;
     height: 60px;
-    margin-bottom: 15px;
+    margin: 0 auto 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -172,17 +163,19 @@ nav ul li a:hover {
 .project-icon svg {
     width: 40px;
     height: 40px;
-    color: var(--accent-color);
+    color: var(--icon-color);
 }
 
 .project-item p {
     font-size: 1.1em;
+    color: var(--text-color);
 }
 
 /* Contact Section */
 #contact h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
+    color: var(--text-color);
 }
 
 form {
@@ -197,15 +190,15 @@ input, textarea {
     margin-bottom: 15px;
     padding: 12px;
     background-color: rgba(255, 255, 255, 0.1);
-    border: none;
+    border: 1px solid var(--text-color);
     border-radius: 5px;
     color: var(--text-color);
     font-size: 1em;
 }
 
 button {
-    background-color: var(--accent-color);
-    color: var(--text-color);
+    background-color: var(--button-color);
+    color: #ffffff;
     border: none;
     padding: 12px 24px;
     cursor: pointer;
@@ -219,12 +212,6 @@ button {
 
 button:hover {
     background-color: var(--highlight-color);
-}
-
-/* Fullpage.js Navigation Styling */
-#fp-nav ul li a span, 
-.fp-slidesNav ul li a span {
-    background: white;
 }
 
 /* Responsive Design */
@@ -244,11 +231,23 @@ button:hover {
     h2 {
         font-size: 2em;
     }
+
+    form {
+        padding: 0 20px;
+    }
 }
 
-/* FullPage.js specific styles */
-.fp-tableCell {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (max-width: 480px) {
+    .project-item {
+        flex: 0 0 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
 }
