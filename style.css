@@ -3,6 +3,7 @@
     --text-color: #ffffff;
     --accent-color: #4169E1;
     --highlight-color: #00BFFF;
+    --button-color: #5A7B9C;
 }
 
 :root.light-mode {
@@ -10,6 +11,7 @@
     --text-color: #333333;
     --accent-color: #5A7B9C;
     --highlight-color: #3A5E7C;
+    --button-color: #8DABC1;
 }
 
 body {
@@ -86,8 +88,9 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    padding: 0 20px;
+    min-height: 100vh;
+    padding: 60px 20px;
+    box-sizing: border-box;
 }
 
 .content {
@@ -205,7 +208,7 @@ input, textarea {
 }
 
 button {
-    background-color: var(--accent-color);
+    background-color: var(--button-color);
     color: var(--text-color);
     border: none;
     padding: 12px 24px;
@@ -257,7 +260,7 @@ button:hover {
 
     /* Home section adjustments */
     #home .content {
-        padding-top: 60px; /* Adjust based on your header height */
+        padding-top: 80px; /* Increased padding to prevent overlap */
     }
 
     #home h1 {
@@ -300,11 +303,11 @@ button:hover {
 
     /* General section adjustments */
     .section {
-        padding: 0 15px;
+        padding: 80px 15px; /* Increased top padding */
     }
 
     .content {
-        padding: 60px 0; /* Adjust based on your header height */
+        padding: 0;
     }
 
     /* FullPage.js navigation adjustment */
