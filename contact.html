@@ -4,76 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me - Stefan Cretu</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; }
+        form { max-width: 400px; margin: 0 auto; }
+        input, textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div id="fullpage">
-        <div class="section" data-anchor="contact">
-            <div class="content">
-                <h2>Contact Me</h2>
-                <form id="contact-form" action="https://formspree.io/f/your_form_id" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" id="submit-btn">Send Message</button>
-                </form>
-                <div id="debug-info"></div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('contact-form');
-            const submitBtn = document.getElementById('submit-btn');
-            const debugInfo = document.getElementById('debug-info');
-
-            submitBtn.addEventListener('click', function(e) {
-                debugInfo.innerHTML += '<p>Submit button clicked!</p>';
-            });
-
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                debugInfo.innerHTML += '<p>Form submission intercepted!</p>';
-                
-                // Manually submit the form
-                fetch(form.action, {
-                    method: form.method,
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        debugInfo.innerHTML += '<p>Form submitted successfully!</p>';
-                        // Redirect to thank you page
-                        window.location.href = 'thankyou.html';
-                    } else {
-                        debugInfo.innerHTML += '<p>Form submission failed. Status: ' + response.status + '</p>';
-                    }
-                }).catch(error => {
-                    debugInfo.innerHTML += '<p>Error: ' + error.message + '</p>';
-                });
-            });
-        });
-    </script>
+    <form action="https://formsubmit.co/your-email@example.com" method="POST">
+        <h2>Contact Me</h2>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
 </body>
 </html>
