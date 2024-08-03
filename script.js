@@ -1,31 +1,46 @@
-document.getElementById('contact-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    new fullpage('#fullpage', {
+        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+        anchors: ['home', 'projects', 'contact'],
+        navigation: true,
+        navigationPosition: 'right',
+        scrollOverflow: true,
+        autoScrolling: true,
+        fitToSection: true,
+        scrollBar: false,
+        afterLoad: function(origin, destination, direction) {
+            console.log("Section loaded:", destination.anchor);
+        },
+        onLeave: function(origin, destination, direction) {
+            console.log("Leaving section:", origin.anchor, "Going to:", destination.anchor, "Direction:", direction);
+        },
+        scrollingSpeed: 700,
+        easing: 'easeInOutCubic',
+        sectionsSelector: '.section'
+    });
 
-    const form = e.target;
-    const formData = new FormData(form);
-    const formStatus = document.getElementById('form-status');
-
-    try {
-        const response = await fetch(form.action, {
-            method: form.method,
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        });
-
-        if (response.ok) {
-            formStatus.innerHTML = "Thank you! Your message has been sent.";
-            form.reset();
-        } else {
-            const data = await response.json();
-            if (data.errors) {
-                formStatus.innerHTML = data.errors.map(error => error.message).join(", ");
-            } else {
-                formStatus.innerHTML = "Oops! There was a problem submitting your form.";
-            }
-        }
-    } catch (error) {
-        formStatus.innerHTML = "Oops! There was a problem submitting your form.";
+    // Create Lucide icons
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+        lucide.createIcons();
+    } else {
+        console.error('Lucide library not loaded properly');
     }
+
+    // Color scheme toggle functionality
+    const colorToggle = document.createElement('button');
+    colorToggle.id = 'color-toggle';
+    colorToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Assuming you're using Font Awesome
+    document.body.appendChild(colorToggle);
+
+    colorToggle.addEventListener('click', function() {
+        document.documentElement.classList.toggle('light-mode');
+        this.innerHTML = document.documentElement.classList.contains('light-mode') 
+            ? '<i class="fas fa-sun"></i>' 
+            : '<i class="fas fa-moon"></i>';
+        fullpage_api.reBuild();
+    });
+});
+
+window.addEventListener('hashchange', function() {
+    console.log('Hash changed:', window.location.hash);
 });
