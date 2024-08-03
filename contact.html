@@ -32,13 +32,13 @@
     </header>
 
     <div id="fullpage">
-        <div class="section" id="contact">
+        <div class="section" id="contact-section">
             <div class="content">
                 <h2>Contact Me</h2>
                 <form id="contact-form">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
                 <div id="message-status"></div>
@@ -48,6 +48,14 @@
 
     <script src="script.js"></script>
     <script>
+        // Initialize FullPage.js
+        new fullpage('#fullpage', {
+            licenseKey: 'YOUR_KEY_HERE',
+            anchors: ['contact'],
+            navigationPosition: 'right',
+            scrollingSpeed: 700,
+        });
+
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
