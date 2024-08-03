@@ -30,6 +30,12 @@
         .btn:hover {
             background-color: #555;
         }
+        #debug-info {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
@@ -48,6 +54,9 @@
             <div class="content">
                 <h2>Contact Me</h2>
                 <form action="https://formsubmit.co/stefancretu24@yahoo.co.uk" method="POST">
+                    <input type="hidden" name="_subject" value="New submission from portfolio site!">
+                    <input type="hidden" name="_next" value="https://stefan-us.github.io/my-portfolio/thankyou.html">
+                    <input type="hidden" name="_captcha" value="false">
                     <div class="form-group">
                         <input type="text" name="name" class="form-control" placeholder="Full Name" required>
                     </div>
@@ -59,6 +68,7 @@
                     </div>
                     <button type="submit" class="btn">Submit Form</button>
                 </form>
+                <div id="debug-info"></div>
             </div>
         </div>
     </div>
@@ -71,6 +81,20 @@
             navigationPosition: 'right',
             scrollingSpeed: 700,
         });
+
+        // Debugging information
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var debugInfo = document.getElementById('debug-info');
+            debugInfo.innerHTML = 'Form submitted. Redirecting...';
+            setTimeout(() => {
+                this.submit();
+            }, 2000);
+        });
+
+        // Display current URL
+        var debugInfo = document.getElementById('debug-info');
+        debugInfo.innerHTML += '<p>Current URL: ' + window.location.href + '</p>';
     </script>
 </body>
 </html>
