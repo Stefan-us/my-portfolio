@@ -22,7 +22,7 @@
         <div id="contact-section" class="section">
             <div class="content">
                 <h2>Contact Me</h2>
-                <form id="contact-form">
+                <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
@@ -40,18 +40,5 @@
     </div>
 
     <script src="script.js"></script>
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
-            var formStatus = document.getElementById('form-status');
-
-            // Simulate form submission (replace with actual form submission logic)
-            setTimeout(function() {
-                formStatus.innerHTML = "Thank you! Your message has been sent.";
-                document.getElementById('contact-form').reset();
-            }, 1000);
-        });
-    </script>
 </body>
 </html>
