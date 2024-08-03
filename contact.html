@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+    <style>
+        #message-status {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -23,16 +35,45 @@
         <div class="section" id="contact">
             <div class="content">
                 <h2>Contact Me</h2>
-                <form action="https://formsubmit.co/stefancretu24@yahoo.co.uk" method="POST">
+                <form id="contact-form">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
                     <textarea name="message" placeholder="Your Message" required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
+                <div id="message-status"></div>
             </div>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const statusDiv = document.getElementById('message-status');
+            const formData = new FormData(form);
+            
+            fetch('https://formsubmit.co/stefancretu24@yahoo.co.uk', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    statusDiv.textContent = 'Message sent successfully!';
+                    statusDiv.className = 'success';
+                    form.reset();
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                statusDiv.textContent = 'There was an error sending your message. Please try again.';
+                statusDiv.className = 'error';
+            });
+        });
+    </script>
 </body>
 </html>
