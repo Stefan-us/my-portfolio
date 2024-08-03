@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me (Console Debug Mode) - Stefan Cretu</title>
+    <title>Contact Me (GitHub Pages Debug) - Stefan Cretu</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+    <style>
+        #debug-info {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,7 +30,7 @@
     <div id="fullpage">
         <div id="contact-section" class="section">
             <div class="content">
-                <h2>Contact Me (Console Debug Mode)</h2>
+                <h2>Contact Me (GitHub Pages Debug)</h2>
                 <form id="contact-form">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -40,39 +49,45 @@
     </div>
 
     <script>
-    console.log('Script started');
+    function addDebugInfo(message) {
+        var debugInfo = document.getElementById('debug-info');
+        var timestamp = new Date().toLocaleTimeString();
+        debugInfo.innerHTML += `<p>[${timestamp}] ${message}</p>`;
+    }
+
+    addDebugInfo('Script started');
 
     document.addEventListener('DOMContentLoaded', function() {
-        console.log('DOMContentLoaded event fired');
+        addDebugInfo('DOMContentLoaded event fired');
 
         var form = document.getElementById('contact-form');
-        console.log('Form element:', form);
+        addDebugInfo('Form element: ' + (form ? 'Found' : 'Not found'));
 
         if (form) {
             form.addEventListener('submit', function(e) {
-                console.log('Form submit event fired');
+                addDebugInfo('Form submit event fired');
                 e.preventDefault();
 
                 var formData = new FormData(form);
                 var jsonData = {};
                 formData.forEach((value, key) => {jsonData[key] = value});
 
-                console.log('Form data:', jsonData);
+                addDebugInfo('Form data: ' + JSON.stringify(jsonData));
 
                 // Simulate form submission
                 setTimeout(function() {
-                    console.log('Simulated form submission complete');
+                    addDebugInfo('Simulated form submission complete');
                     alert('Debug: Form submitted successfully (simulated)');
                     form.reset();
                 }, 1000);
             });
         } else {
-            console.error('Form element not found');
+            addDebugInfo('Error: Form element not found');
         }
     });
 
     window.addEventListener('load', function() {
-        console.log('Window load event fired');
+        addDebugInfo('Window load event fired');
     });
     </script>
 </body>
