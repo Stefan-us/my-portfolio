@@ -3,18 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me (Debug Mode) - Stefan Cretu</title>
+    <title>Contact Me (Console Debug Mode) - Stefan Cretu</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
-    <style>
-        #debug-info {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            color: #333;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -30,7 +21,7 @@
     <div id="fullpage">
         <div id="contact-section" class="section">
             <div class="content">
-                <h2>Contact Me (Debug Mode)</h2>
+                <h2>Contact Me (Console Debug Mode)</h2>
                 <form id="contact-form">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -49,35 +40,39 @@
     </div>
 
     <script>
+    console.log('Script started');
+
     document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOMContentLoaded event fired');
+
         var form = document.getElementById('contact-form');
-        var debugInfo = document.getElementById('debug-info');
+        console.log('Form element:', form);
 
-        function logDebug(message) {
-            var timestamp = new Date().toLocaleTimeString();
-            debugInfo.innerHTML += `<p>[${timestamp}] ${message}</p>`;
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                console.log('Form submit event fired');
+                e.preventDefault();
+
+                var formData = new FormData(form);
+                var jsonData = {};
+                formData.forEach((value, key) => {jsonData[key] = value});
+
+                console.log('Form data:', jsonData);
+
+                // Simulate form submission
+                setTimeout(function() {
+                    console.log('Simulated form submission complete');
+                    alert('Debug: Form submitted successfully (simulated)');
+                    form.reset();
+                }, 1000);
+            });
+        } else {
+            console.error('Form element not found');
         }
+    });
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            logDebug('Form submission attempted');
-
-            var formData = new FormData(form);
-            var jsonData = {};
-            formData.forEach((value, key) => {jsonData[key] = value});
-
-            logDebug('Form data: ' + JSON.stringify(jsonData));
-
-            // Simulate form submission
-            setTimeout(function() {
-                logDebug('Simulated form submission complete');
-                alert('Debug: Form submitted successfully (simulated)');
-                form.reset();
-            }, 1000);
-        });
-
-        // Log when the page is fully loaded
-        logDebug('Contact page loaded');
+    window.addEventListener('load', function() {
+        console.log('Window load event fired');
     });
     </script>
 </body>
