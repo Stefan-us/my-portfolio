@@ -3,21 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me - Stefan Cretu</title>
+    <title>Contact Me (GitHub Pages Debug) - Stefan Cretu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; }
-        form { max-width: 400px; margin: 0 auto; }
-        input, textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
-        button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        #debug-info {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            color: #333;
+        }
     </style>
 </head>
 <body>
-    <form action="https://formsubmit.co/your-email@example.com" method="POST">
-        <h2>Contact Me</h2>
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="fullpage">
+        <div class="section" data-anchor="contact">
+            <div class="content">
+                <h2>Contact Me (GitHub Pages Debug)</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit">Send Message (Debug)</button>
+                </form>
+                <div id="debug-info"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function addDebugInfo(message) {
+        var debugInfo = document.getElementById('debug-info');
+        var timestamp = new Date().toLocaleTimeString();
+        debugInfo.innerHTML += `<p>[${timestamp}] ${message}</p>`;
+    }
+
+    addDebugInfo('Script started');
+
+    document.addEventListener('DOMContentLoaded', function() {
+        addDebugInfo('DOMContentLoaded event fired');
+
+        var form = document.getElementById('contact-form');
+        addDebugInfo('Form element: ' + (form ? 'Found' : 'Not found'));
+
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                addDebugInfo('Form submit event fired');
+                e.preventDefault();
+
+                var formData = new FormData(form);
+                var jsonData = {};
+                formData.forEach((value, key) => {jsonData[key] = value});
+
+                addDebugInfo('Form data: ' + JSON.stringify(jsonData));
+
+                // Simulate form submission
+                setTimeout(function() {
+                    addDebugInfo('Simulated form submission complete');
+                    alert('Debug: Form submitted successfully (simulated)');
+                    form.reset();
+                }, 1000);
+            });
+        } else {
+            addDebugInfo('Error: Form element not found');
+        }
+
+        // Initialize fullPage.js
+        new fullpage('#fullpage', {
+            licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+            anchors: ['contact'],
+            navigation: true,
+            navigationPosition: 'right',
+            scrollOverflow: true,
+            afterLoad: function(origin, destination, direction) {
+                addDebugInfo("Section loaded: " + destination.anchor);
+            },
+            onLeave: function(origin, destination, direction) {
+                addDebugInfo("Leaving section: " + origin.anchor + " Going to: " + destination.anchor + " Direction: " + direction);
+            }
+        });
+    });
+
+    window.addEventListener('load', function() {
+        addDebugInfo('Window load event fired');
+    });
+
+    window.addEventListener('hashchange', function() {
+        addDebugInfo('Hash changed: ' + window.location.hash);
+    });
+    </script>
 </body>
 </html>
