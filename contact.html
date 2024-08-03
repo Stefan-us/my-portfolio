@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me - Stefan Cretu</title>
+    <title>Contact Me (Debug Mode) - Stefan Cretu</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+    <style>
+        #debug-info {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,7 +30,7 @@
     <div id="fullpage">
         <div id="contact-section" class="section">
             <div class="content">
-                <h2>Contact Me</h2>
+                <h2>Contact Me (Debug Mode)</h2>
                 <form id="contact-form">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -32,26 +41,44 @@
                     <div class="form-group">
                         <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                     </div>
-                    <button type="submit">Send Message</button>
+                    <button type="submit">Send Message (Debug)</button>
                 </form>
-                <div id="form-status"></div>
+                <div id="debug-info"></div>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
     <script>
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
-            var formStatus = document.getElementById('form-status');
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('contact-form');
+        var debugInfo = document.getElementById('debug-info');
 
-            // Simulate form submission (replace with actual form submission logic)
+        function logDebug(message) {
+            var timestamp = new Date().toLocaleTimeString();
+            debugInfo.innerHTML += `<p>[${timestamp}] ${message}</p>`;
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            logDebug('Form submission attempted');
+
+            var formData = new FormData(form);
+            var jsonData = {};
+            formData.forEach((value, key) => {jsonData[key] = value});
+
+            logDebug('Form data: ' + JSON.stringify(jsonData));
+
+            // Simulate form submission
             setTimeout(function() {
-                formStatus.innerHTML = "Thank you! Your message has been sent.";
-                document.getElementById('contact-form').reset();
+                logDebug('Simulated form submission complete');
+                alert('Debug: Form submitted successfully (simulated)');
+                form.reset();
             }, 1000);
         });
+
+        // Log when the page is fully loaded
+        logDebug('Contact page loaded');
+    });
     </script>
 </body>
 </html>
