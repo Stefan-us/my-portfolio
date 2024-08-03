@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me (GitHub Pages Debug) - Stefan Cretu</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
     <style>
         #debug-info {
@@ -28,7 +29,7 @@
     </header>
 
     <div id="fullpage">
-        <div id="contact-section" class="section">
+        <div class="section" data-anchor="contact">
             <div class="content">
                 <h2>Contact Me (GitHub Pages Debug)</h2>
                 <form id="contact-form">
@@ -84,10 +85,29 @@
         } else {
             addDebugInfo('Error: Form element not found');
         }
+
+        // Initialize fullPage.js
+        new fullpage('#fullpage', {
+            licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+            anchors: ['contact'],
+            navigation: true,
+            navigationPosition: 'right',
+            scrollOverflow: true,
+            afterLoad: function(origin, destination, direction) {
+                addDebugInfo("Section loaded: " + destination.anchor);
+            },
+            onLeave: function(origin, destination, direction) {
+                addDebugInfo("Leaving section: " + origin.anchor + " Going to: " + destination.anchor + " Direction: " + direction);
+            }
+        });
     });
 
     window.addEventListener('load', function() {
         addDebugInfo('Window load event fired');
+    });
+
+    window.addEventListener('hashchange', function() {
+        addDebugInfo('Hash changed: ' + window.location.hash);
     });
     </script>
 </body>
