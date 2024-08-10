@@ -3,8 +3,8 @@
     --text-color: #ffffff;
     --accent-color: #4169E1;
     --highlight-color: #00BFFF;
-    --light-soft-blue: #add8e6;
-    --neutral-color: #B0B0B0;
+    --light-soft-blue: #add8e6; /* New color for light mode button */
+    --neutral-color: #B0B0B0; /* New neutral color for the icon */
 }
 
 :root.light-mode {
@@ -12,8 +12,8 @@
     --text-color: #333333;
     --accent-color: #5A7B9C;
     --highlight-color: #3A5E7C;
-    --light-soft-blue: #add8e6;
-    --neutral-color: #B0B0B0;
+    --light-soft-blue: #add8e6; /* New color for light mode button */
+    --neutral-color: #B0B0B0; /* New neutral color for the icon */
 }
 
 body {
@@ -27,6 +27,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Header and Navigation */
 header {
     position: fixed;
     width: 100%;
@@ -64,6 +65,7 @@ nav ul li a:hover {
     color: var(--highlight-color);
 }
 
+/* Color Toggle Button */
 #color-toggle {
     position: fixed;
     top: 20px;
@@ -72,19 +74,11 @@ nav ul li a:hover {
     background-color: var(--accent-color);
     color: var(--text-color);
     border: none;
+    padding: 10px 15px;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 5px;
     font-size: 0.9em;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: background-color 0.3s ease;
-}
-
-#color-toggle:hover {
-    background-color: var(--highlight-color);
 }
 
 .light-mode #color-toggle {
@@ -92,6 +86,12 @@ nav ul li a:hover {
     color: var(--text-color);
 }
 
+/* Updated icon color for light mode */
+.light-mode #color-toggle {
+    background-color: var(--neutral-color);
+}
+
+/* General Section Styling */
 .section {
     display: flex;
     align-items: center;
@@ -101,7 +101,7 @@ nav ul li a:hover {
 }
 
 .content {
-    max-width: 600px;
+    max-width: 1200px;
     width: 100%;
     text-align: center;
     display: flex;
@@ -110,21 +110,132 @@ nav ul li a:hover {
     justify-content: center;
 }
 
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 30px;
+/* Home Section */
+#home .content {
+    height: 100%;
 }
 
-#guess {
+#home .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    max-width: 300px;
-    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+#home h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+#home h5 {
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 0;
+}
+
+.left-part, .right-part {
+    width: 100%;
+    text-align: center;
+}
+
+.highlight {
+    color: var(--highlight-color);
+}
+
+/* Projects Section */
+#projects h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.project-item {
+    flex: 0 0 calc(25% - 30px);
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+}
+
+.project-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-icon svg {
+    width: 40px;
+    height: 40px;
+    color: var(--accent-color);
+}
+
+.project-item p {
+    font-size: 1.1em;
+}
+
+/* Contact Section */
+#contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    margin-bottom: 15px;
     padding: 12px;
     background-color: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 5px;
     color: var(--text-color);
     font-size: 1em;
+}
+
+/* Guess the Number Game Styles */
+.section .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+#guess {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1em;
+    padding: 12px;
 }
 
 button {
@@ -150,30 +261,83 @@ button:hover {
 #message {
     margin-top: 20px;
     font-size: 1.2em;
-    font-weight: bold;
+    color: var(--text-color);
 }
 
+#color-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 0.9em;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+#color-toggle:hover {
+    background-color: var(--highlight-color);
+}
+
+.light-mode #color-toggle {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Fullpage.js Navigation Styling */
 #fp-nav ul li a span, 
 .fp-slidesNav ul li a span {
     background: white;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    #home h1 {
+        font-size: 2em;
+    }
+
+    #home h5 {
+        font-size: 1em;
+    }
+
+    .project-item {
+        flex: 0 0 calc(50% - 30px);
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+}
+
+/* FullPage.js specific styles */
 .fp-tableCell {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-@media (max-width: 768px) {
-    .section .content {
-        padding: 0 10px;
-    }
-    
-    #guess, button {
-        max-width: 100%;
-    }
+/* Guess the Number Game Styles */
+#guess {
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1em;
+    width: 200px;
+}
 
-    h1 {
-        font-size: 2em;
-    }
+#message {
+    margin-top: 15px;
+    font-weight: bold;
 }
