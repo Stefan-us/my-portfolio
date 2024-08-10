@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     new fullpage('#fullpage', {
         licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
-        anchors: ['guess-number'],
+        anchors: ['home', 'projects', 'contact'],
         navigation: true,
         navigationPosition: 'right',
         scrollOverflow: true,
@@ -19,7 +19,30 @@ document.addEventListener('DOMContentLoaded', function() {
         sectionsSelector: '.section'
     });
 
-    initGuessNumberGame();
+    // Create Lucide icons
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+        lucide.createIcons();
+    } else {
+        console.error('Lucide library not loaded properly');
+    }
+
+    // Color scheme toggle functionality
+    const colorToggle = document.createElement('button');
+    colorToggle.id = 'color-toggle';
+    colorToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Assuming you're using Font Awesome
+    document.body.appendChild(colorToggle);
+
+    colorToggle.addEventListener('click', function() {
+        document.documentElement.classList.toggle('light-mode');
+        this.innerHTML = document.documentElement.classList.contains('light-mode') 
+            ? '<i class="fas fa-sun"></i>' 
+            : '<i class="fas fa-moon"></i>';
+        fullpage_api.reBuild();
+    });
+});
+
+window.addEventListener('hashchange', function() {
+    console.log('Hash changed:', window.location.hash);
 });
 
 function initGuessNumberGame() {
@@ -32,20 +55,17 @@ function initGuessNumberGame() {
         attempts++;
 
         if (guess == targetNumber) {
-            message.textContent = `Congratulations! You guessed the number ${targetNumber} in ${attempts} attempts! You're amazing!`;
-            message.style.color = 'var(--highlight-color)';
+            message.textContent = `Congratulations! You guessed the number in ${attempts} attempts!`;
             document.querySelector('button').disabled = true;
         } else if (guess < targetNumber) {
             message.textContent = "Too low! Try again.";
-            message.style.color = 'var(--text-color)';
         } else {
             message.textContent = "Too high! Try again.";
-            message.style.color = 'var(--text-color)';
         }
     }
 }
 
-window.addEventListener('hashchange', function() {
-    console.log('Hash changed:', window.location.hash);
-});
-
+// Initialize the game if on the guess number page
+if (document.querySelector('#guess')) {
+    initGuessNumberGame();
+}
