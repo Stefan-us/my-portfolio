@@ -49,16 +49,3 @@ window.addEventListener('hashchange', function() {
     console.log('Hash changed:', window.location.hash);
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const colorToggle = document.getElementById('color-toggle');
-    
-    colorToggle.addEventListener('click', function() {
-        document.documentElement.classList.toggle('light-mode');
-        this.innerHTML = document.documentElement.classList.contains('light-mode') 
-            ? '<i class="fas fa-sun"></i>' 
-            : '<i class="fas fa-moon"></i>';
-        if (typeof fullpage_api !== 'undefined') {
-            fullpage_api.reBuild();
-        }
-    });
-});
