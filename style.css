@@ -81,8 +81,9 @@ nav ul li a:hover {
     transition: background-color 0.3s ease;
 }
 
-#color-toggle:hover {
-    background-color: var(--highlight-color);
+.light-mode #color-toggle {
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 /* Updated icon color for light mode */
@@ -213,7 +214,33 @@ input, textarea {
     font-size: 1em;
 }
 
+/* Guess the Number Game Styles */
+.section .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+#guess {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1em;
+    padding: 12px;
+}
+
 button {
+    width: 100%;
+    max-width: 300px;
     background-color: var(--accent-color);
     color: var(--text-color);
     border: none;
@@ -231,9 +258,39 @@ button:hover {
     background-color: var(--highlight-color);
 }
 
-/* New button styles for light mode */
-.light-mode button {
-    background-color: var(--light-soft-blue);
+#message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+#color-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 0.9em;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+#color-toggle:hover {
+    background-color: var(--highlight-color);
+}
+
+.light-mode #color-toggle {
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 /* Fullpage.js Navigation Styling */
