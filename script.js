@@ -44,3 +44,28 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('hashchange', function() {
     console.log('Hash changed:', window.location.hash);
 });
+
+function initGuessNumberGame() {
+    let targetNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+
+    window.checkGuess = function() {
+        let guess = document.getElementById('guess').value;
+        let message = document.getElementById('message');
+        attempts++;
+
+        if (guess == targetNumber) {
+            message.textContent = `Congratulations! You guessed the number in ${attempts} attempts!`;
+            document.querySelector('button').disabled = true;
+        } else if (guess < targetNumber) {
+            message.textContent = "Too low! Try again.";
+        } else {
+            message.textContent = "Too high! Try again.";
+        }
+    }
+}
+
+// Initialize the game if on the guess number page
+if (document.querySelector('#guess')) {
+    initGuessNumberGame();
+}

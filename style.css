@@ -267,3 +267,20 @@ button:hover {
     align-items: center;
     justify-content: center;
 }
+
+/* Guess the Number Game Styles */
+#guess {
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1em;
+    width: 200px;
+}
+
+#message {
+    margin-top: 15px;
+    font-weight: bold;
+}
